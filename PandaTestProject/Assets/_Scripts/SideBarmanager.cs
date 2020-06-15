@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SideBarmanager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class SideBarmanager : MonoBehaviour
 	public void ClearallplayerPrefs()
 	{
 		PlayerPrefs.DeleteAll();
+		Application.Quit();
 	}
+	
 }
 

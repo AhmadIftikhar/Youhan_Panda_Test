@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Parse;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-
+using System;
 
 public class ParseSignInscreen : MonoBehaviour
 {
@@ -43,10 +43,12 @@ public class ParseSignInscreen : MonoBehaviour
 	[SerializeField]
 	InputField Forgot_Email;
 	public UnityEvent OnForgotsucess;
-
+	public static ParseSignInscreen instance;
 
 	void Start()
 	{
+		instance = this;
+		DontDestroyOnLoad(this.gameObject);
 		OnLoadingstart.Invoke();
 		string username = PlayerPrefs.GetString("username","");
 		string password = PlayerPrefs.GetString("password","");
@@ -147,6 +149,10 @@ public class ParseSignInscreen : MonoBehaviour
 	}
 
 
+	public void logout()
+	{
+		ParseUser.LogOut();
+	}
 
 	public async void Forgotpassword()
 	{
@@ -154,22 +160,29 @@ public class ParseSignInscreen : MonoBehaviour
 		{
 
 			if (t.IsFaulted || t.IsCanceled)
-		
+
+			{
+				UnityMainThread.wkr.AddJob(() =>
 				{
-				feedbackMessage.text = "Reset Message Sent To Email";
-				OnForgotsucess.Invoke(); //Clear forgot Screen
+
+					feedbackMessage.text = "Reset Message Sent To Email";
+
+					OnForgotsucess.Invoke(); //Clear forgot Screen
+				});
+			
 			}
 
 			if (t.IsCompleted)
+			{
+				UnityMainThread.wkr.AddJob(() =>
 				{
-				feedbackMessage.text = "Reset Message Sent To Email";
-				OnSignInSuccess.Invoke(); 
-				OnForgotsucess.Invoke(); //Clear forgot Screen
+					feedbackMessage.text = "Reset Message Sent To Email";
+					OnSignInSuccess.Invoke(); 
+					OnForgotsucess.Invoke(); //Clear forgot Screen
+				});
+
 			}
-
 		});
-
-
 	}
 
 
