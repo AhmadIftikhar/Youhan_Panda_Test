@@ -55,7 +55,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -67,7 +66,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -104,7 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1107067430553041658}
   - component: {fileID: 1107067430553041656}
-  - component: {fileID: 1107067430553041657}
+  - component: {fileID: 1445103339956128732}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -139,7 +137,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107067430553041659}
   m_CullTransparentMesh: 0
---- !u!114 &1107067430553041657
+--- !u!114 &1445103339956128732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,7 +146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1107067430553041659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -157,7 +155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -166,7 +164,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1107067430830148034
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,11 +215,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9974a349f4b497d41851bfb8cc118c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageholder: {fileID: 1107067430553041657}
+  imageholder: {fileID: 1445103339956128732}
   unavailableImage: {fileID: 21300000, guid: 02e92e8e79f735b41a70d5366a26c544, type: 3}
   Hittingplane: 0
   startDrag: 0
-  TextDescription: {fileID: 1107067430841544895}
+  TextDescription: {fileID: 6058224386485880180}
   Quad: {fileID: 613974324}
   QuadMaterial: {fileID: 2100000, guid: bb0528a13c28f2f4eb5cceacf918e1d8, type: 2}
   offset: 0.05
@@ -236,7 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1107067430841544880}
   - component: {fileID: 1107067430841544894}
-  - component: {fileID: 1107067430841544895}
+  - component: {fileID: 6058224386485880180}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -271,7 +268,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107067430841544881}
   m_CullTransparentMesh: 0
---- !u!114 &1107067430841544895
+--- !u!114 &6058224386485880180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -280,7 +277,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1107067430841544881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -295,11 +292,11 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 60
+    m_MaxSize: 91
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Ball
+  m_Text: balll

@@ -1,0 +1,25 @@
+1.4(5.6+):
+ - Added alpha UCK shader for usage with Blit function, allowing for applying chroma-keying directly to texture (see manual)
+ - Added 3 colors version of Unlit and fullscreen shaders
+ - Minor Android fixes
+
+1.3:
+ - Unity 5.5 compatibility fixes
+ - enabled stacking of multiple chroma-key components on single camera (full-screen effect)
+
+1.2c:
+ - custom inspector fixes
+
+1.2b:
+ - fixed Android compatibility issue
+ - minor performance improvements
+
+1.2:
+ - added Crop function
+ - added Direct-source shaders
+
+1.1:
+ - Unity 5 support
+ - added ChromaKey shaders allowing using chroma key effect on materials instead of fullscreen effect (works on Unity 4 Free version)
+ - added image effect toggle
+ - fixed serialization bugs
