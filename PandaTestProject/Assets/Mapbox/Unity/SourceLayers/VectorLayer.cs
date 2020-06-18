@@ -3,7 +3,6 @@ using Mapbox.Utils;
 using System;
 using UnityEngine;
 using System.Collections.Generic;
-using Mapbox.Unity.MeshGeneration.Data;
 using Mapbox.Unity.MeshGeneration.Factories;
 using Mapbox.Unity.Utilities;
 
@@ -74,9 +73,12 @@ namespace Mapbox.Unity.Map
 			_layerProperty.PropertyHasChanged += RedrawVectorLayer;
 			_layerProperty.SubLayerPropertyAdded += AddVectorLayer;
 			_layerProperty.SubLayerPropertyRemoved += RemoveVectorLayer;
-			_vectorTileFactory.TileFactoryHasChanged += OnVectorTileFactoryOnTileFactoryHasChanged;
-		}
+			_vectorTileFactory.TileFactoryHasChanged += (sender, args) =>
+			{
+				NotifyUpdateLayer(args as LayerUpdateArgs);
+			};
 
+		}
 
 		public void Update(LayerProperties properties)
 		{
@@ -85,10 +87,7 @@ namespace Mapbox.Unity.Map
 
 		public void UnbindAllEvents()
 		{
-			if (_vectorTileFactory != null)
-			{
-				_vectorTileFactory.UnbindEvents();
-			}
+			_vectorTileFactory.UnbindEvents();
 		}
 
 		public void UpdateFactorySettings()
@@ -121,10 +120,7 @@ namespace Mapbox.Unity.Map
 
 			layerUpdateArgs.factory = _vectorTileFactory;
 
-			if (SubLayerAdded != null)
-			{
-				SubLayerAdded(this, layerUpdateArgs);
-			}
+			SubLayerAdded(this, layerUpdateArgs);
 		}
 
 		private void RemoveVectorLayer(object sender, EventArgs args)
@@ -134,20 +130,12 @@ namespace Mapbox.Unity.Map
 			layerUpdateArgs.visualizer = _vectorTileFactory.FindVectorLayerVisualizer((VectorSubLayerProperties)layerUpdateArgs.property);
 			layerUpdateArgs.factory = _vectorTileFactory;
 
-			if (SubLayerRemoved != null)
-			{
-				SubLayerRemoved(this, layerUpdateArgs);
-			}
+			SubLayerRemoved(this, layerUpdateArgs);
 		}
 
 		private void RedrawVectorLayer(object sender, System.EventArgs e)
 		{
 			NotifyUpdateLayer(_vectorTileFactory, sender as MapboxDataProperty, true);
-		}
-
-		private void OnVectorTileFactoryOnTileFactoryHasChanged(object sender, EventArgs args)
-		{
-			NotifyUpdateLayer(args as LayerUpdateArgs);
 		}
 
 		#region Api Methods
@@ -158,11 +146,11 @@ namespace Mapbox.Unity.Map
 		}
 
 		/// <summary>
-		/// Add provided data source (TilesetId) to existing ones.
-		/// Mapbox vector api supports comma separated TilesetIds and this method
-		/// adds the provided TilesetId at the end of the existing source.
+		/// Add provided data source (mapid) to existing ones.
+		/// Mapbox vector api supports comma separated mapids and this method
+		/// adds the provided mapid at the end of the existing source.
 		/// </summary>
-		/// <param name="vectorSource">Data source (TilesetId) to add to existing sources.</param>
+		/// <param name="vectorSource">Data source (Mapid) to add to existing sources.</param>
 		public virtual void AddLayerSource(string vectorSource)
 		{
 			if (!string.IsNullOrEmpty(vectorSource))
@@ -185,9 +173,9 @@ namespace Mapbox.Unity.Map
 		}
 
 		/// <summary>
-		/// Change existing data source (TilesetId) with provided source.
+		/// Change existing data source (mapid) with provided source.
 		/// </summary>
-		/// <param name="vectorSource">Data source (TilesetId) to use.</param>
+		/// <param name="vectorSource">Data source (Mapid) to use.</param>
 		public virtual void SetLayerSource(string vectorSource)
 		{
 			SetLayerSourceInternal(vectorSource);
@@ -195,9 +183,9 @@ namespace Mapbox.Unity.Map
 		}
 
 		/// <summary>
-		/// Change existing data source (TilesetId) with provided source.
+		/// Change existing data source (mapid) with provided source.
 		/// </summary>
-		/// <param name="vectorSource">Data source (TilesetId) to use.</param>
+		/// <param name="vectorSource">Data source (Mapid) to use.</param>
 		public virtual void SetLayerSource(VectorSourceType vectorSource)
 		{
 			SetLayerSourceInternal(vectorSource);
@@ -238,7 +226,7 @@ namespace Mapbox.Unity.Map
 		/// of them each frame.
 		/// </summary>
 		/// <param name="entityPerCoroutine">Numbers of features to process each frame.</param>
-		///
+		/// 
 		public virtual void EnableVectorFeatureProcessingWithCoroutines(int entityPerCoroutine = 20)
 		{
 			if (_layerProperty.performanceOptions.isEnabled != true ||
@@ -531,6 +519,7 @@ namespace Mapbox.Unity.Map
 			var layerToRemove = FindFeatureSubLayerWithName(featureLayerName);
 			if (layerToRemove != null)
 			{
+				//vectorSubLayers.Remove(layerToRemove);
 				_layerProperty.OnSubLayerPropertyRemoved(new VectorLayerUpdateArgs { property = layerToRemove });
 			}
 		}
@@ -603,6 +592,7 @@ namespace Mapbox.Unity.Map
 			var layerToRemove = FindPointsofInterestSubLayerWithName(poiLayerName);
 			if (layerToRemove != null)
 			{
+				//vectorSubLayers.Remove(layerToRemove);
 				_layerProperty.OnSubLayerPropertyRemoved(new VectorLayerUpdateArgs { property = layerToRemove });
 			}
 		}
@@ -656,6 +646,5 @@ namespace Mapbox.Unity.Map
 			}
 		}
 		#endregion
-
 	}
 }

@@ -11,7 +11,7 @@ using UnityEngine;
 public class DataFetcherParameters
 {
 	public CanonicalTileId canonicalTileId;
-	public string tilesetId;
+	public string mapid;
 	public UnityTile tile;
 }
 
@@ -53,10 +53,10 @@ public class TerrainDataFetcher : DataFetcher
 		var terrainDataParameters = parameters as TerrainDataFetcherParameters;
 		if(terrainDataParameters == null)
 		{
-			return;
+			return;	
 		}
 		var pngRasterTile = new RawPngRasterTile();
-		pngRasterTile.Initialize(_fileSource, terrainDataParameters.canonicalTileId, terrainDataParameters.tilesetId, () =>
+		pngRasterTile.Initialize(_fileSource, terrainDataParameters.canonicalTileId, terrainDataParameters.mapid, () =>
 		{
 			if (terrainDataParameters.tile.CanonicalTileId != pngRasterTile.Id)
 			{

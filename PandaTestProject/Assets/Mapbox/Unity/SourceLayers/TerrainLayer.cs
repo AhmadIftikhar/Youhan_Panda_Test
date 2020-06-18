@@ -1,6 +1,4 @@
-﻿using Mapbox.Unity.MeshGeneration.Data;
-
-namespace Mapbox.Unity.Map
+﻿namespace Mapbox.Unity.Map
 {
 	using System;
 	using UnityEngine;
@@ -150,6 +148,12 @@ namespace Mapbox.Unity.Map
 				NotifyUpdateLayer(_elevationFactory, property as MapboxDataProperty, true);
 			};
 		}
+		// public void RedrawLayer(object sender, System.EventArgs e)
+		// {
+		// 	SetFactoryOptions();
+		// 	//notifying map to reload existing tiles
+		// 	NotifyUpdateLayer(_elevationFactory, property as MapboxDataProperty, false);
+		// }
 
 		private void SetFactoryOptions()
 		{
@@ -196,8 +200,6 @@ namespace Mapbox.Unity.Map
 			};
 		}
 
-
-
 		public void Update(LayerProperties properties)
 		{
 			Initialize(properties);
@@ -208,7 +210,7 @@ namespace Mapbox.Unity.Map
 		/// <summary>
 		/// Sets the data source for Terrain Layer.
 		/// Defaults to MapboxTerrain.
-		/// Use <paramref name="terrainSource"/> = None, to disable the Terrain Layer.
+		/// Use <paramref name="terrainSource"/> = None, to disable the Terrain Layer. 
 		/// </summary>
 		/// <param name="terrainSource">Terrain source.</param>
 		public virtual void SetLayerSource(ElevationSourceType terrainSource = ElevationSourceType.MapboxTerrain)
@@ -226,8 +228,8 @@ namespace Mapbox.Unity.Map
 		}
 
 		/// <summary>
-		/// Sets the data source to a custom source for Terrain Layer.
-		/// </summary>
+		/// Sets the data source to a custom source for Terrain Layer. 
+		/// </summary> 
 		/// <param name="terrainSource">Terrain source.</param>
 		public virtual void SetLayerSource(string terrainSource)
 		{

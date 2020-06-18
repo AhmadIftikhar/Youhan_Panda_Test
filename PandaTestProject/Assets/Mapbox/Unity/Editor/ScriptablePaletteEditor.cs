@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+    //AtlasConstructor
 [CustomEditor(typeof(ScriptablePalette))]
 public class ScriptablePaletteEditor : Editor
 {

@@ -1,5 +1,3 @@
-using MapboxAccountsUnity;
-
 namespace Mapbox.Unity
 {
 	using UnityEngine;
@@ -87,7 +85,7 @@ namespace Mapbox.Unity
 			}
 			else
 			{
-				TokenValidator.Retrieve(configuration.GetMapsSkuToken, configuration.AccessToken, (response) =>
+				TokenValidator.Retrieve(configuration.AccessToken, (response) =>
 				{
 					if (OnTokenValidation != null)
 					{
@@ -157,8 +155,7 @@ namespace Mapbox.Unity
 			}
 
 #if !WINDOWS_UWP
-			var test = JsonUtility.FromJson<MapboxConfiguration>(ConfigurationJSON);
-			SetConfiguration(ConfigurationJSON == null ? null : test);
+			SetConfiguration(ConfigurationJSON == null ? null : JsonUtility.FromJson<MapboxConfiguration>(ConfigurationJSON));
 #else
 			SetConfiguration(ConfigurationJSON == null ? null : Mapbox.Json.JsonConvert.DeserializeObject<MapboxConfiguration>(ConfigurationJSON));
 #endif
@@ -167,7 +164,7 @@ namespace Mapbox.Unity
 
 		void ConfigureFileSource()
 		{
-			_fileSource = new CachingWebFileSource(_configuration.AccessToken, _configuration.GetMapsSkuToken, _configuration.AutoRefreshCache)
+			_fileSource = new CachingWebFileSource(_configuration.AccessToken, _configuration.AutoRefreshCache)
 				.AddCache(new MemoryCache(_configuration.MemoryCacheSize))
 #if !UNITY_WEBGL
 				.AddCache(new SQLiteCache(_configuration.FileCacheSize))
@@ -228,10 +225,10 @@ namespace Mapbox.Unity
 			, Action<Response> callback
 			, int timeout = 10
 			, CanonicalTileId tileId = new CanonicalTileId()
-			, string tilesetId = null
+			, string mapId = null
 		)
 		{
-			return _fileSource.Request(url, callback, _configuration.DefaultTimeout, tileId, tilesetId);
+			return _fileSource.Request(url, callback, _configuration.DefaultTimeout, tileId, mapId);
 		}
 
 
@@ -245,7 +242,7 @@ namespace Mapbox.Unity
 			{
 				if (_geocoder == null)
 				{
-					_geocoder = new Geocoder(new FileSource(Instance.Configuration.GetMapsSkuToken, _configuration.AccessToken));
+					_geocoder = new Geocoder(new FileSource(_configuration.AccessToken));
 				}
 				return _geocoder;
 			}
@@ -262,7 +259,7 @@ namespace Mapbox.Unity
 			{
 				if (_directions == null)
 				{
-					_directions = new Directions(new FileSource(Instance.Configuration.GetMapsSkuToken, _configuration.AccessToken));
+					_directions = new Directions(new FileSource(_configuration.AccessToken));
 				}
 				return _directions;
 			}
@@ -278,7 +275,7 @@ namespace Mapbox.Unity
 			{
 				if (_mapMatcher == null)
 				{
-					_mapMatcher = new MapMatcher(new FileSource(Instance.Configuration.GetMapsSkuToken, _configuration.AccessToken), _configuration.DefaultTimeout);
+					_mapMatcher = new MapMatcher(new FileSource(_configuration.AccessToken), _configuration.DefaultTimeout);
 				}
 				return _mapMatcher;
 			}
@@ -304,7 +301,7 @@ namespace Mapbox.Unity
 
 		TileJSON _tileJson;
 		/// <summary>
-		/// Lazy TileJSON wrapper: https://www.mapbox.com/api-documentation/maps/#retrieve-tilejson-metadata
+		/// Lazy TileJSON wrapper: https://www.mapbox.com/api-documentation/#retrieve-tilejson-metadata
 		/// </summary>
 		public TileJSON TileJSON
 		{
@@ -312,7 +309,7 @@ namespace Mapbox.Unity
 			{
 				if (_tileJson == null)
 				{
-					_tileJson = new TileJSON(new FileSource(Instance.Configuration.GetMapsSkuToken, _configuration.AccessToken), _configuration.DefaultTimeout);
+					_tileJson = new TileJSON(new FileSource(_configuration.AccessToken), _configuration.DefaultTimeout);
 				}
 				return _tileJson;
 			}
@@ -329,17 +326,10 @@ namespace Mapbox.Unity
 
 	public class MapboxConfiguration
 	{
-		[NonSerialized] private MapboxAccounts mapboxAccounts = new MapboxAccounts();
-
 		public string AccessToken;
 		public uint MemoryCacheSize = 500;
 		public uint FileCacheSize = 2500;
 		public int DefaultTimeout = 30;
 		public bool AutoRefreshCache = false;
-
-		public string GetMapsSkuToken()
-		{
-			return mapboxAccounts.ObtainMapsSkuUserToken(Application.persistentDataPath);
-		}
 	}
 }

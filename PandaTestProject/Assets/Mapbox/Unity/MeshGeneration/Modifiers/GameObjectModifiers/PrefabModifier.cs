@@ -90,6 +90,8 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 				}
 			}
 
+			//go.transform.localScale = Constants.Math.Vector3One;
+
 			settable = go.GetComponent<IFeaturePropertySettable>();
 			if (settable != null)
 			{
@@ -97,17 +99,17 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 			}
 		}
 
-		public override void Clear()
+		public override void ClearCaches()
 		{
-			base.Clear();
+			base.ClearCaches();
 			foreach (var gameObject in _objects.Values)
 			{
-				gameObject.Destroy();
+				Destroy(gameObject);
 			}
 
 			foreach (var gameObject in _prefabList)
 			{
-				gameObject.Destroy();
+				Destroy(gameObject);
 			}
 		}
 	}

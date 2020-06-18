@@ -87,7 +87,7 @@ namespace Mapbox.Unity.MeshGeneration.Data
 
 		public bool ContainsLatLon(Vector2d coord)
 		{
-			//first check tile
+			////first check tile
 			var coordinateTileId = Conversions.LatitudeLongitudeToTileId(
 				coord.x, coord.y, Tile.CurrentZoom);
 
@@ -103,16 +103,21 @@ namespace Mapbox.Unity.MeshGeneration.Data
 				}
 			}
 
-			if ((!coordinateTileId.Canonical.Equals(Tile.CanonicalTileId)))
+
+			//Debug.Log("Distance -> " + dist);
 			{
-				return false;
+				if ((!coordinateTileId.Canonical.Equals(Tile.CanonicalTileId)))
+				{
+					return false;
+				}
+
+				//then check polygon
+				var point = Conversions.LatitudeLongitudeToVectorTilePosition(coord, Tile.CurrentZoom);
+				var output = PolygonUtils.PointInPolygon(new Point2d<float>(point.x, point.y), _geom);
+
+				return output;
 			}
 
-			//then check polygon
-			var point = Conversions.LatitudeLongitudeToVectorTilePosition(coord, Tile.CurrentZoom);
-			var output = PolygonUtils.PointInPolygon(new Point2d<float>(point.x, point.y), _geom);
-
-			return output;
 		}
 
 	}

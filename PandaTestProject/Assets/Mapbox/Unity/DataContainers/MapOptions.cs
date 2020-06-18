@@ -13,10 +13,4 @@
 		public Texture2D loadingTexture = null;
 		public Material tileMaterial = null;
 	}
-
-	[Serializable]
-	public class EditorPreviewOptions : MapboxDataProperty
-	{
-		public bool isPreviewEnabled = false;
-	}
 }

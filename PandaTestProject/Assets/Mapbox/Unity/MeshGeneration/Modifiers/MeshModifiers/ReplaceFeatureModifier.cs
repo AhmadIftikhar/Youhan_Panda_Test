@@ -23,7 +23,7 @@
 
 		private Dictionary<ulong, GameObject> _objects;
 		private Dictionary<ulong, Vector2d> _objectPosition;
-		private static GameObject _poolGameObject;
+		private GameObject _poolGameObject;
 		[SerializeField]
 		private SpawnPrefabOptions _options;
 		private List<GameObject> _prefabList = new List<GameObject>();
@@ -44,8 +44,6 @@
 		/// </summary>
 		private List<List<string>> _featureId;
 		private string _tempFeatureId;
-
-		private static AbstractMap _abstractMap;
 
 		public SpawnPrefabOptions SpawnPrefabOptions
 		{
@@ -86,18 +84,7 @@
 			{
 				_objects = new Dictionary<ulong, GameObject>();
 				_objectPosition = new Dictionary<ulong, Vector2d>();
-				if(_poolGameObject == null)
-				{
-					_poolGameObject = new GameObject("_inactive_prefabs_pool");
-				}
-				if(_abstractMap == null)
-				{
-					_abstractMap = FindObjectOfType<AbstractMap>();
-				}
-				if(_abstractMap != null)
-				{
-					_poolGameObject.transform.SetParent(_abstractMap.transform, true);
-				}
+				_poolGameObject = new GameObject("_inactive_prefabs_pool");
 			}
 			_latLonToSpawn = new List<Vector2d>();
 			foreach (var loc in _prefabLocations)
@@ -252,6 +239,7 @@
 			{
 				goRectTransform.anchoredPosition3D = centroidVector;
 			}
+			//go.transform.localScale = Constants.Math.Vector3One;
 
 			settable = go.GetComponent<IFeaturePropertySettable>();
 			if (settable != null)
@@ -317,15 +305,15 @@
 			go.transform.SetParent(_poolGameObject.transform, false);
 		}
 
-		public override void Clear()
+		public override void ClearCaches()
 		{
 			foreach (var gameObject in _objects.Values)
 			{
-				gameObject.Destroy();
+				Destroy(gameObject);
 			}
 			_objects.Clear();
 			_objectPosition.Clear();
-			_poolGameObject.Destroy();
+			Destroy(_poolGameObject);
 		}
 	}
 }

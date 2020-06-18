@@ -29,12 +29,12 @@ namespace Mapbox.Unity.MeshGeneration.Factories.TerrainStrategies
 			}
 
 			if ((int)tile.ElevationType != (int)ElevationLayerType.GlobeTerrain ||
-				tile.MeshFilter.sharedMesh.vertexCount != RequiredVertexCount)
+			    tile.MeshFilter.mesh.vertexCount != RequiredVertexCount)
 			{
-				tile.MeshFilter.sharedMesh.Clear();
+				tile.MeshFilter.mesh.Clear();
 				tile.ElevationType = TileTerrainType.Globe;
 			}
-
+		
 			GenerateTerrainMesh(tile);
 		}
 
@@ -91,11 +91,11 @@ namespace Mapbox.Unity.MeshGeneration.Factories.TerrainStrategies
 				}
 			}
 
-			tile.MeshFilter.sharedMesh.SetVertices(verts);
-			tile.MeshFilter.sharedMesh.SetTriangles(trilist, 0);
-			tile.MeshFilter.sharedMesh.SetUVs(0, uvlist);
-			tile.MeshFilter.sharedMesh.RecalculateBounds();
-			tile.MeshFilter.sharedMesh.RecalculateNormals();
+			tile.MeshFilter.mesh.SetVertices(verts);
+			tile.MeshFilter.mesh.SetTriangles(trilist, 0);
+			tile.MeshFilter.mesh.SetUVs(0, uvlist);
+			tile.MeshFilter.mesh.RecalculateBounds();
+			tile.MeshFilter.mesh.RecalculateNormals();
 
 			tile.transform.localPosition = Mapbox.Unity.Constants.Math.Vector3Zero;
 		}

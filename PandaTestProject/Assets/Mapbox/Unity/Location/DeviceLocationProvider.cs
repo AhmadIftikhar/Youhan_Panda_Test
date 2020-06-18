@@ -127,7 +127,9 @@ namespace Mapbox.Unity.Location
 
 			if (_pollRoutine == null)
 			{
+#if !UNITY_STANDALONE
 				_pollRoutine = StartCoroutine(PollLocationRoutine());
+#endif
 			}
 		}
 
@@ -141,24 +143,44 @@ namespace Mapbox.Unity.Location
 		IEnumerator PollLocationRoutine()
 		{
 #if UNITY_EDITOR
-			while (!UnityEditor.EditorApplication.isRemoteConnected)
-			{
-				// exit if we are not the selected location provider
-				if (null != LocationProviderFactory.Instance && null != LocationProviderFactory.Instance.DefaultLocationProvider)
-				{
-					if (!this.Equals(LocationProviderFactory.Instance.DefaultLocationProvider))
-					{
-						yield break;
-					}
-				}
+            while (!UnityEditor.EditorApplication.isRemoteConnected)
+            {
+                // exit if we are not the selected location provider
+                if (null != LocationProviderFactory.Instance && null != LocationProviderFactory.Instance.DefaultLocationProvider)
+                {
+                    if (!this.Equals(LocationProviderFactory.Instance.DefaultLocationProvider))
+                    {
+                        yield break;
+                    }
+                }
 
-				Debug.LogWarning("Remote device not connected via 'Unity Remote'. Waiting ..." + Environment.NewLine + "If Unity seems to be stuck here make sure 'Unity Remote' is running and restart Unity with your device already connected.");
-				yield return _wait1sec;
-			}
+                Debug.LogWarning("Remote device not connected via 'Unity Remote'. Waiting ..." + Environment.NewLine + "If Unity seems to be stuck here make sure 'Unity Remote' is running and restart Unity with your device already connected.");
+                yield return _wait1sec;
+            }
 #endif
 
+            //#if UNITY_EDITOR
+            //			if (UnityEditor.EditorApplication.isRemoteConnected) yield break;
+            //#endif
+            //			while (!UnityEditor.EditorApplication.isRemoteConnected)
+            //            {
+            //                // exit if we are not the selected location provider
+            //                if (null != LocationProviderFactory.Instance && null != LocationProviderFactory.Instance.DefaultLocationProvider)
+            //                {
+            //                    if (!this.Equals(LocationProviderFactory.Instance.DefaultLocationProvider))
+            //                    {
+            //                        yield break;
+            //                    }
+            //                }
 
-			//request runtime fine location permission on Android if not yet allowed
+            //                Debug.LogWarning("Remote device not connected via 'Unity Remote'. Waiting ..." + Environment.NewLine + "If Unity seems to be stuck here make sure 'Unity Remote' is running and restart Unity with your device already connected.");
+            //                yield return _wait1sec;
+            //            }
+            //#endif
+
+
+
+            //request runtime fine location permission on Android if not yet allowed
 #if UNITY_ANDROID
 			if (!_locationService.isEnabledByUser)
 			{
@@ -169,7 +191,7 @@ namespace Mapbox.Unity.Location
 #endif
 
 
-			if (!_locationService.isEnabledByUser)
+            if (!_locationService.isEnabledByUser)
 			{
 				Debug.LogError("DeviceLocationProvider: Location is not enabled by user!");
 				_currentLocation.IsLocationServiceEnabled = false;

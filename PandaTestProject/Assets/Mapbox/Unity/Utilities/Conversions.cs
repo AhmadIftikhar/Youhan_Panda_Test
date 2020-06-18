@@ -59,7 +59,7 @@ namespace Mapbox.Unity.Utilities
 
 			if (!double.TryParse(latLonSplit[1], NumberStyles.Any, NumberFormatInfo.InvariantInfo, out longitude))
 			{
-				throw new Exception(string.Format("Could not convert longitude to double: {0}", latLonSplit[0]));
+				throw new Exception(string.Format("Could not convert longitude to double: {0}", latLonSplit[1]));
 			}
 
 			return new Vector2d(latitude, longitude);
@@ -100,6 +100,8 @@ namespace Mapbox.Unity.Utilities
 			var posx = lon * OriginShift / 180;
 			var posy = Math.Log(Math.Tan((90 + lat) * Math.PI / 360)) / (Math.PI / 180);
 			posy = posy * OriginShift / 180;
+   //         Vector2d test = new Vector2d((posx - refPoint.x) * scale, (posy - refPoint.y) * scale);
+			//return test; 
 			return new Vector2d((posx - refPoint.x) * scale, (posy - refPoint.y) * scale);
 		}
 
@@ -390,7 +392,7 @@ namespace Mapbox.Unity.Utilities
 
 		public static float GetAbsoluteHeightFromColor(float r, float g, float b)
 		{
-			return (-10000f + ((r * 65536f + g * 256f + b) * 0.1f));
+			return (float)(-10000 + ((r * 256 * 256 + g * 256 + b) * 0.1));
 		}
 
 		private static double Resolution(int zoom)

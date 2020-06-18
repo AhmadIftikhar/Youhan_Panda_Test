@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_scenes/Camera.unity
-    guid: 87770f6541c236649a55a9e646b5d490
+    path: Assets/NatSuite/Examples/WebCam/WebCam.unity
+    guid: 66396c4bbeac244118de8e95af4aff1d
   m_configObjects: {}

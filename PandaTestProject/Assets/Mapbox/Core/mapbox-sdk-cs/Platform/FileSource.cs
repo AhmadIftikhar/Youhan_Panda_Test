@@ -4,8 +4,6 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-using Mapbox.Unity;
-
 namespace Mapbox.Platform
 {
 	using Mapbox.Map;
@@ -41,24 +39,23 @@ namespace Mapbox.Platform
 	public sealed class FileSource : IFileSource
 	{
 
-		private Func<string> _getMapsSkuToken;
+
 		private readonly Dictionary<IAsyncRequest, int> _requests = new Dictionary<IAsyncRequest, int>();
 		private readonly string _accessToken;
 		private readonly object _lock = new object();
 
-		/// <summary>Length of rate-limiting interval in seconds. https://www.mapbox.com/api-documentation/#rate-limit-headers </summary>
+		/// <summary>Length of rate-limiting interval in seconds. https://www.mapbox.com/api-documentation/#rate-limits </summary>
 #pragma warning disable 0414
 		private int? XRateLimitInterval;
-		/// <summary>Maximum number of requests you may make in the current interval before reaching the limit. https://www.mapbox.com/api-documentation/#rate-limit-headers </summary>
+		/// <summary>Maximum number of requests you may make in the current interval before reaching the limit. https://www.mapbox.com/api-documentation/#rate-limits </summary>
 		private long? XRateLimitLimit;
-		/// <summary>Timestamp of when the current interval will end and the ratelimit counter is reset. https://www.mapbox.com/api-documentation/#rate-limit-headers </summary>
+		/// <summary>Timestamp of when the current interval will end and the ratelimit counter is reset. https://www.mapbox.com/api-documentation/#rate-limits </summary>
 		private DateTime? XRateLimitReset;
 #pragma warning restore 0414
 
 
-		public FileSource(Func<string> getMapsSkuToken, string acessToken = null)
+		public FileSource(string acessToken = null)
 		{
-			_getMapsSkuToken = getMapsSkuToken;
 			if (string.IsNullOrEmpty(acessToken))
 			{
 				_accessToken = Environment.GetEnvironmentVariable("MAPBOX_ACCESS_TOKEN");
@@ -82,21 +79,20 @@ namespace Mapbox.Platform
 			, Action<Response> callback
 			, int timeout = 10
 			, CanonicalTileId tileId = new CanonicalTileId()
-			, string tilesetId = null
+			, string mapId = null
 		)
 		{
 			if (!string.IsNullOrEmpty(_accessToken))
 			{
 				var uriBuilder = new UriBuilder(url);
 				string accessTokenQuery = "access_token=" + _accessToken;
-				string skuToken = "sku=" + _getMapsSkuToken();
 				if (uriBuilder.Query != null && uriBuilder.Query.Length > 1)
 				{
-					uriBuilder.Query = uriBuilder.Query.Substring(1) + "&" + accessTokenQuery + "&" + skuToken;;
+					uriBuilder.Query = uriBuilder.Query.Substring(1) + "&" + accessTokenQuery;
 				}
 				else
 				{
-					uriBuilder.Query = accessTokenQuery + "&" + skuToken;
+					uriBuilder.Query = accessTokenQuery;
 				}
 
 				url = uriBuilder.ToString();
@@ -113,7 +109,7 @@ namespace Mapbox.Platform
 
 			//return request;
 
-			return proxyResponse(url, callback, timeout, tileId, tilesetId);
+			return proxyResponse(url, callback, timeout, tileId, mapId);
 		}
 
 
@@ -124,7 +120,7 @@ namespace Mapbox.Platform
 			, Action<Response> callback
 			, int timeout
 			, CanonicalTileId tileId
-			, string tilesetId
+			, string mapId
 		)
 		{
 

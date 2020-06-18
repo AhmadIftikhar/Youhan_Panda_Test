@@ -4,8 +4,6 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-using System;
-
 namespace Mapbox.MapboxSdkCs.UnitTest
 {
 
@@ -24,14 +22,12 @@ namespace Mapbox.MapboxSdkCs.UnitTest
 
 		private MapboxTokenApi _tokenApi;
 		private string _configAccessToken;
-		private Func<string> _configSkuToken;
 
 		[SetUp]
 		public void SetUp()
 		{
 			_tokenApi = new MapboxTokenApi();
 			_configAccessToken = MapboxAccess.Instance.Configuration.AccessToken;
-			_configSkuToken = MapboxAccess.Instance.Configuration.GetMapsSkuToken;
 		}
 
 
@@ -42,7 +38,6 @@ namespace Mapbox.MapboxSdkCs.UnitTest
 			MapboxToken token = null;
 
 			_tokenApi.Retrieve(
-				_configSkuToken,
 				_configAccessToken,
 				(MapboxToken tok) =>
 				{
@@ -65,9 +60,8 @@ namespace Mapbox.MapboxSdkCs.UnitTest
 			MapboxToken token = null;
 
 			_tokenApi.Retrieve(
-				_configSkuToken,
-				"yada.yada",
-				(MapboxToken tok) =>
+				"yada.yada"
+				, (MapboxToken tok) =>
 				{
 					token = tok;
 				}
@@ -88,9 +82,8 @@ namespace Mapbox.MapboxSdkCs.UnitTest
 			MapboxToken token = null;
 
 			_tokenApi.Retrieve(
-				_configSkuToken,
-				"pk.12345678901234567890123456789012345.0123456789012345678901",
-				(MapboxToken tok) =>
+				"pk.12345678901234567890123456789012345.0123456789012345678901"
+				, (MapboxToken tok) =>
 				{
 					token = tok;
 				}

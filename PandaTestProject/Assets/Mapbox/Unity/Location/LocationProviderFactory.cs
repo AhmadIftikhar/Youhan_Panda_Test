@@ -137,24 +137,27 @@ namespace Mapbox.Unity.Location
 			InjectDeviceLocationProvider();
 		}
 
-		/// <summary>
-		/// Injects the editor location provider.
-		/// Depending on the platform, this method and calls to it will be stripped during compile.
-		/// </summary>
-		[System.Diagnostics.Conditional("UNITY_EDITOR")]
-		void InjectEditorLocationProvider()
+        /// <summary>
+        /// Injects the editor location provider.
+        /// Depending on the platform, this method and calls to it will be stripped during compile.
+        /// </summary>
+        //[System.Diagnostics.Conditional("UNITY_EDITOR")]
+        void InjectEditorLocationProvider()
 		{
+#if UNITY_EDITOR || UNITY_STANDALONE
 			Debug.LogFormat("LocationProviderFactory: Injected EDITOR Location Provider - {0}", _editorLocationProvider.GetType());
 			DefaultLocationProvider = _editorLocationProvider;
+#endif
 		}
 
-		/// <summary>
-		/// Injects the device location provider.
-		/// Depending on the platform, this method and calls to it will be stripped during compile.
-		/// </summary>
-		[System.Diagnostics.Conditional("NOT_UNITY_EDITOR")]
-		void InjectDeviceLocationProvider()
+        /// <summary>
+        /// Injects the device location provider.
+        /// Depending on the platform, this method and calls to it will be stripped during compile.
+        /// </summary>
+        [System.Diagnostics.Conditional("NOT_UNITY_EDITOR")]
+        void InjectDeviceLocationProvider()
 		{
+#if (!UNITY_EDITOR && !UNITY_STANDALONE)
 			int AndroidApiVersion = 0;
 			var regex = new Regex(@"(?<=API-)-?\d+");
 			Match match = regex.Match(SystemInfo.operatingSystem); // eg 'Android OS 8.1.0 / API-27 (OPM2.171019.029/4657601)'
@@ -181,6 +184,7 @@ namespace Mapbox.Unity.Location
 				Debug.LogFormat("LocationProviderFactory: Injected DEVICE Location Provider - {0}", _deviceLocationProviderUnity.GetType());
 				DefaultLocationProvider = _deviceLocationProviderUnity;
 			}
-		}
-	}
+#endif
+        }
+    }
 }

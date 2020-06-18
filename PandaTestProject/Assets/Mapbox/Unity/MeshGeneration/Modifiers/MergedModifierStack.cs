@@ -17,6 +17,9 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 	[CreateAssetMenu(menuName = "Mapbox/Modifiers/Merged Modifier Stack")]
 	public class MergedModifierStack : ModifierStackBase
 	{
+		//[NodeEditorElement("Mesh Modifiers")] public List<MeshModifier> MeshModifiers;
+		//[NodeEditorElement("Game Object Modifiers")] public List<GameObjectModifier> GoModifiers;
+
 		private Dictionary<UnityTile, int> _cacheVertexCount = new Dictionary<UnityTile, int>();
 		private Dictionary<UnityTile, List<MeshData>> _cached = new Dictionary<UnityTile, List<MeshData>>();
 		private Dictionary<UnityTile, int> _buildingCount = new Dictionary<UnityTile, int>();
@@ -40,14 +43,14 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 			{
 				_tempGameObject = new GameObject();
 				_tempMeshFilter = _tempGameObject.AddComponent<MeshFilter>();
-				_tempMeshFilter.sharedMesh = new Mesh();
+				_tempMeshFilter.mesh.MarkDynamic();
 				_tempVectorEntity = new VectorEntity()
 				{
 					GameObject = _tempGameObject,
 					Transform = _tempGameObject.transform,
 					MeshFilter = _tempMeshFilter,
 					MeshRenderer = _tempGameObject.AddComponent<MeshRenderer>(),
-					Mesh = _tempMeshFilter.sharedMesh
+					Mesh = _tempMeshFilter.mesh
 				};
 				return _tempVectorEntity;
 			});
@@ -58,7 +61,7 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 
 		public override void OnUnregisterTile(UnityTile tile)
 		{
-			//removing all caches
+			//removing all caches 
 			if (_activeObjects.ContainsKey(tile))
 			{
 				_counter = _activeObjects[tile].Count;
@@ -253,35 +256,6 @@ namespace Mapbox.Unity.MeshGeneration.Modifiers
 				}
 			}
 			return null;
-		}
-
-		public override void Clear()
-		{
-			foreach (var vectorEntity in _pool.GetQueue())
-			{
-				if (vectorEntity.Mesh != null)
-				{
-					vectorEntity.Mesh.Destroy(true);
-				}
-
-				vectorEntity.GameObject.Destroy();
-			}
-
-			foreach (var tileTuple in _activeObjects)
-			{
-				foreach (var vectorEntity in tileTuple.Value)
-				{
-					if (vectorEntity.Mesh != null)
-					{
-						vectorEntity.Mesh.Destroy(true);
-
-					}
-					vectorEntity.GameObject.Destroy();
-				}
-			}
-			_pool.Clear();
-			_activeObjects.Clear();
-			_pool.Clear();
 		}
 	}
 }

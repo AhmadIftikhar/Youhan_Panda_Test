@@ -12,13 +12,13 @@ namespace Mapbox.MapMatching
 	/// <summary>Directions profile id</summary>
 	public enum Profile
 	{
-		[Description("mapbox/driving")]
+		[System.ComponentModel.Description("mapbox/driving")]
 		MapboxDriving,
-		[Description("mapbox/driving-traffic")]
+		[System.ComponentModel.Description("mapbox/driving-traffic")]
 		MapboxDrivingTraffic,
-		[Description("mapbox/walking")]
+		[System.ComponentModel.Description("mapbox/walking")]
 		MapboxWalking,
-		[Description("mapbox/cycling")]
+		[System.ComponentModel.Description("mapbox/cycling")]
 		MapboxCycling
 	}
 
@@ -27,13 +27,13 @@ namespace Mapbox.MapMatching
 	public enum Geometries
 	{
 		/// <summary>Default, precision 5.</summary>
-		[Description("polyline")]
+		[System.ComponentModel.Description("polyline")]
 		Polyline,
 		/// <summary>Precision 6.</summary>
-		[Description("polyline6")]
+		[System.ComponentModel.Description("polyline6")]
 		Polyline6,
 		/// <summary>Geojson.</summary>
-		[Description("geojson")]
+		[System.ComponentModel.Description("geojson")]
 		GeoJson
 	}
 
@@ -42,13 +42,13 @@ namespace Mapbox.MapMatching
 	public enum Overview
 	{
 		/// <summary>The most detailed geometry available </summary>
-		[Description("full")]
+		[System.ComponentModel.Description("full")]
 		Full,
 		/// <summary>A simplified version of the full geometry</summary>
-		[Description("simplified")]
+		[System.ComponentModel.Description("simplified")]
 		Simplified,
 		/// <summary>No overview geometry </summary>
-		[Description("false")]
+		[System.ComponentModel.Description("false")]
 		None
 	}
 
@@ -57,57 +57,57 @@ namespace Mapbox.MapMatching
 	[System.Flags]
 	public enum Annotations
 	{
-		[Description("duration")]
+		[System.ComponentModel.Description("duration")]
 		Duration,
-		[Description("distance")]
+		[System.ComponentModel.Description("distance")]
 		Distance,
-		[Description("speed")]
+		[System.ComponentModel.Description("speed")]
 		Speed,
-		[Description("congestion")]
+		[System.ComponentModel.Description("congestion")]
 		Congestion
 	}
 
 
 	/// <summary>
-	/// https://www.mapbox.com/api-documentation/navigation/#retrieve-directions
+	/// https://www.mapbox.com/api-documentation/#retrieve-directions
 	/// </summary>
 	public enum InstructionLanguages
 	{
-		[Description("de")]
+		[System.ComponentModel.Description("de")]
 		German,
-		[Description("en")]
+		[System.ComponentModel.Description("en")]
 		English,
-		[Description("eo")]
+		[System.ComponentModel.Description("eo")]
 		Esperanto,
-		[Description("es")]
+		[System.ComponentModel.Description("es")]
 		Spanish,
-		[Description("es-ES")]
+		[System.ComponentModel.Description("es-ES")]
 		SpanishSpain,
-		[Description("fr")]
+		[System.ComponentModel.Description("fr")]
 		French,
-		[Description("id")]
+		[System.ComponentModel.Description("id")]
 		Indonesian,
-		[Description("it")]
+		[System.ComponentModel.Description("it")]
 		Italian,
-		[Description("nl")]
+		[System.ComponentModel.Description("nl")]
 		Dutch,
-		[Description("pl")]
+		[System.ComponentModel.Description("pl")]
 		Polish,
-		[Description("pt-BR")]
+		[System.ComponentModel.Description("pt-BR")]
 		PortugueseBrazil,
-		[Description("ro")]
+		[System.ComponentModel.Description("ro")]
 		Romanian,
-		[Description("ru")]
+		[System.ComponentModel.Description("ru")]
 		Russian,
-		[Description("sv")]
+		[System.ComponentModel.Description("sv")]
 		Swedish,
-		[Description("tr")]
+		[System.ComponentModel.Description("tr")]
 		Turkish,
-		[Description("uk")]
+		[System.ComponentModel.Description("uk")]
 		Ukrainian,
-		[Description("vi")]
+		[System.ComponentModel.Description("vi")]
 		Vietnamese,
-		[Description("zh-Hans")]
+		[System.ComponentModel.Description("zh-Hans")]
 		ChineseSimplified
 	}
 

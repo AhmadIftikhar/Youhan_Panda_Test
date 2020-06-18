@@ -14,15 +14,10 @@
 			foreach (var item in property)
 			{
 				var subproperty = item as SerializedProperty;
-				EditorGUI.PropertyField(position, subproperty, true);
+				EditorGUILayout.PropertyField(subproperty, true);
 				position.height = lineHeight;
 				position.y += lineHeight;
 			}
-		}
-
-		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-		{
-			return 3 * lineHeight;
 		}
 	}
 }

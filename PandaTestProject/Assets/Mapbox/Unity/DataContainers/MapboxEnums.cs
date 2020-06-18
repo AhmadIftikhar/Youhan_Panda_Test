@@ -168,27 +168,19 @@
 #if !ENABLE_WINMD_SUPPORT
 		[Description("Mapbox Streets along with unique identifiers for building features. Combines building footprints that may be in different tiles.")]
 #endif
-		MapboxStreetsWithBuildingIds = 0,
+		MapboxStreetsWithBuildingIds,
 #if !ENABLE_WINMD_SUPPORT
 		[Description("Mapbox Streets vector tiles are largely based on data from OpenStreetMap, a free & global source of geographic data built by volunteers.")]
 #endif
-		MapboxStreets = 1,
-#if !ENABLE_WINMD_SUPPORT
-		[Description("Mapbox Streets vector tiles are largely based on data from OpenStreetMap, a free & global source of geographic data built by volunteers.")]
-#endif
-		MapboxStreetsV8WithBuildingIds = -1,
-#if !ENABLE_WINMD_SUPPORT
-		[Description("Mapbox Streets vector tiles are largely based on data from OpenStreetMap, a free & global source of geographic data built by volunteers.")]
-#endif
-		MapboxStreetsV8 = -2,
+		MapboxStreets,
 #if !ENABLE_WINMD_SUPPORT
 		[Description("Use custom tilesets created using Mapbox studio. ")]
 #endif
-		Custom = 2,
+		Custom,
 #if !ENABLE_WINMD_SUPPORT
 		[Description("Turn off vector data rendering.")]
 #endif
-		None = 3
+		None
 	}
 	public enum ElevationLayerType
 	{
@@ -393,30 +385,4 @@
 		Points,
 		Custom
 	}
-
-	public enum JoinType
-	{
-		Miter = 0,
-		Round = 1,
-		Bevel = 2,
-		Butt,
-		Square,
-		Fakeround,
-		Flipbevel
-	}
-
-	public enum LineJoinType
-	{
-		Miter = 0,
-		Round = 1,
-		Bevel = 2
-	}
-
-	public enum LineCapType
-	{
-		Butt = 3,
-		Round = 1,
-		Square = 4
-	}
-
 }

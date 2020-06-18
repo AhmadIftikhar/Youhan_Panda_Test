@@ -52,10 +52,11 @@
 				{
 					if (replaceFeatureModifier != null)
 					{
-						replaceFeatureModifier.Clear();
+						replaceFeatureModifier.ClearCaches();
 					}
 				}
 			}
+
 
 			_replaceFeatureModifiers = new List<ReplaceFeatureModifier>();
 			foreach (FeatureBundle feature in features)
@@ -136,11 +137,11 @@
 			}
 		}
 
-		public override void Clear()
+		public override void ClearCaches()
 		{
 			foreach (var subModules in _replaceFeatureModifiers)
 			{
-				subModules.Clear();
+				subModules.ClearCaches();
 			}
 		}
 	}

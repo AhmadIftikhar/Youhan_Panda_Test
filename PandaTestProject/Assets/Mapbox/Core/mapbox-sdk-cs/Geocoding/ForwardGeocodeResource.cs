@@ -191,11 +191,7 @@ namespace Mapbox.Geocoding
 				ApiEndpoint +
 				Mode +
 #if UNITY_IOS
-#if UNITY_2017_1_OR_NEWER
-				UnityEngine.Networking.UnityWebRequest.EscapeURL(Query) +
-#else
 				WWW.EscapeURL(Query) +
-#endif
 #else
 				Uri.EscapeDataString(Query) +
 #endif

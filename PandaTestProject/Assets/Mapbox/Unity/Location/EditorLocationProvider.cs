@@ -28,6 +28,7 @@ namespace Mapbox.Unity.Location
 		[SerializeField]
 		Transform _targetTransform;
 
+		//[SerializeField]
 		AbstractMap _map;
 
 		bool _mapInitialized;
@@ -36,6 +37,7 @@ namespace Mapbox.Unity.Location
 		protected virtual void Start()
 		{
 			LocationProviderFactory.Instance.mapManager.OnInitialized += Map_OnInitialized;
+			//_map.OnInitialized += Map_OnInitialized;
 
 			if (_targetTransform == null)
 			{
@@ -49,6 +51,7 @@ namespace Mapbox.Unity.Location
 		void Map_OnInitialized()
 		{
 			LocationProviderFactory.Instance.mapManager.OnInitialized -= Map_OnInitialized;
+			//_map.OnInitialized -= Map_OnInitialized;
 			_mapInitialized = true;
 			_map = LocationProviderFactory.Instance.mapManager;
 		}

@@ -3,17 +3,15 @@
 	using UnityEngine;
 	using UnityEditor;
 	using Mapbox.Unity.MeshGeneration.Modifiers;
+	using Mapbox.Editor.NodeEditor;
 
 	[CustomEditor(typeof(MergedModifierStack))]
 	public class MergedModifierStackEditor : UnityEditor.Editor
 	{
 		private MonoScript script;
-		private Texture2D _magnifier;
-
 		private void OnEnable()
 		{
 			script = MonoScript.FromScriptableObject((MergedModifierStack)target);
-			_magnifier = EditorGUIUtility.FindTexture("d_ViewToolZoom");
 		}
 
 		public override void OnInspectorGUI()
@@ -37,7 +35,7 @@
 				facs.GetArrayElementAtIndex(ind).objectReferenceValue = EditorGUILayout.ObjectField(facs.GetArrayElementAtIndex(i).objectReferenceValue, typeof(MeshModifier), false) as ScriptableObject;
 				EditorGUILayout.EndVertical();
 
-				if (GUILayout.Button(_magnifier, (GUIStyle)"minibuttonleft", GUILayout.Width(30)))
+				if (GUILayout.Button(NodeBasedEditor.magnifierTexture, (GUIStyle)"minibuttonleft", GUILayout.Width(30)))
 				{
 					ScriptableCreatorWindow.Open(typeof(MeshModifier), facs, ind);
 				}
@@ -74,7 +72,7 @@
 
 				EditorGUILayout.EndVertical();
 
-				if (GUILayout.Button(_magnifier, (GUIStyle)"minibuttonleft", GUILayout.Width(30)))
+				if (GUILayout.Button(NodeBasedEditor.magnifierTexture, (GUIStyle)"minibuttonleft", GUILayout.Width(30)))
 				{
 					ScriptableCreatorWindow.Open(typeof(GameObjectModifier), facs2, ind);
 				}

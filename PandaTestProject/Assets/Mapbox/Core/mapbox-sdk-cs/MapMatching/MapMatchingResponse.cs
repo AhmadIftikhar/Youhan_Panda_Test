@@ -21,6 +21,13 @@ namespace Mapbox.MapMatching
 		/// <summary>Simple constructor for deserialization </summary>
 		public MapMatchingResponse() { }
 
+		///// <summary>Constructor for bubbling errors of underlying web request </summary>
+		//public MapMatchingResponse(ReadOnlyCollection<Exception> requestExceptions)
+		//{
+		//	_requestExceptions = requestExceptions;
+		//}
+
+
 		[JsonProperty("code")]
 		public string Code;
 		[JsonProperty("message")]

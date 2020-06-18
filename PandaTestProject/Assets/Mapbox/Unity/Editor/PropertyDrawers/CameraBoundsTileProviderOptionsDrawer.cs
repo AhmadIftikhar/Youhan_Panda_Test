@@ -11,15 +11,11 @@
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
 			var camera = property.FindPropertyRelative("camera");
-			EditorGUI.PropertyField(position, camera, new GUIContent
+			EditorGUILayout.PropertyField(camera, new GUIContent
 			{
 				text = camera.displayName,
 				tooltip = "Camera to control map extent."
-			});
-		}
-		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-		{
-			return 1 * _lineHeight;
+			}, GUILayout.Height(_lineHeight));
 		}
 	}
 }

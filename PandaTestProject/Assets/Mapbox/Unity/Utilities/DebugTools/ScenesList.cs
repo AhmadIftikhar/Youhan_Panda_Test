@@ -46,6 +46,7 @@ namespace Mapbox.Unity.Utilities.DebugTools
 			{
 				if (asset == scene)
 				{
+					//Debug.Log("Asset " + scene + " is contained in " + path);
 					return true;
 				}
 			}

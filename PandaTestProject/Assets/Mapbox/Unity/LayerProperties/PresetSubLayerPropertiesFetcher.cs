@@ -17,8 +17,6 @@
 			VectorPrimitiveType geometryType = VectorPrimitiveType.Polygon;
 			string layerName = "building";
 			string sublayerName = "Untitled";
-
-			//Line Geometry Options
 			float lineWidth = 1.0f;
 
 			//Geometry Extrusion Options
@@ -59,7 +57,7 @@
 					layerName = "road";
 					geometryType = VectorPrimitiveType.Line;
 					lineWidth = 1.0f;
-					style = StyleTypes.Dark;
+					style = StyleTypes.Custom;
 					extrusionType = ExtrusionType.AbsoluteHeight;
 					extrusionGeometryType = ExtrusionGeometryType.RoofAndSide;
 					break;
@@ -118,7 +116,7 @@
 			_properties.materialOptions = new GeometryMaterialOptions
 			{
 				style = style,
-				colorStyleColor = Constants.GUI.Colors.EDITOR_FEATURE_DEFAULT_COLOR
+				colorStyleColor = UnityEngine.Color.green
 			};
 			_properties.materialOptions.SetDefaultMaterialOptions();
 			_properties.buildingsWithUniqueIds = buildingsWithUniqueIds;

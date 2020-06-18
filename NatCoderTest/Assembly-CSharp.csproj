@@ -63,24 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AgoraEngine\Demo\ButtonHandler.cs" />
-    <Compile Include="Assets\AgoraEngine\Demo\TestHelloUnityVideo.cs" />
-    <Compile Include="Assets\AgoraEngine\Demo\TestHome.cs" />
-    <Compile Include="Assets\AgoraEngine\Demo\UIElementDragger.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\AgoraCallback.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\AgoraEnums.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\AgoraGamingRtcEngine.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\AudioEffectManager.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\deviceManager\AudioPlaybackDeviceManager.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\deviceManager\AudioRecordingDeviceManager.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\deviceManager\VideoDeviceManager.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\native\IAgoraGamingRtcEngineNative.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\observer\MetaDataObserver.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\observer\PacketObserver.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\rawData\AudioRawDataManager.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\rawData\VideoRawDataManager.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\videoRender\VideoRender.cs" />
-    <Compile Include="Assets\AgoraEngine\Scripts\AgoraGamingSDK\videoRender\VideoSurface.cs" />
     <Compile Include="Assets\NatSuite\Examples\Giffy\Giffy.cs" />
     <Compile Include="Assets\NatSuite\Examples\ReplayCam\CameraPreview.cs" />
     <Compile Include="Assets\NatSuite\Examples\ReplayCam\RecordButton.cs" />
@@ -116,7 +98,6 @@
     <None Include="Assets\UChromaKey\Shaders\UCK-Bump-Alpha.shader" />
     <None Include="Assets\UChromaKey\Shaders\UCK-DS-Alpha-Diffuse.shader" />
     <None Include="Assets\UChromaKey\Shaders\UCK-DS-Diff-Unlit-Alpha.shader" />
-    <None Include="Assets\AgoraEngine\Plugins\Android\AgoraRtcEngineKit.plugin\AndroidManifest.xml" />
     <None Include="Assets\UChromaKey\Shaders\UCK-Diff-Unlit-Alpha.shader" />
     <None Include="Assets\UChromaKey\Manual\changelog.txt" />
     <None Include="Assets\UChromaKey\Shaders\UCK-DS-Unlit-Alpha.shader" />

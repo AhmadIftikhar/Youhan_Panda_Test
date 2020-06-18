@@ -20,6 +20,8 @@
 			materials = new MaterialList[2];
 			materials[0] = new MaterialList();
 			materials[1] = new MaterialList();
+
+			//SetDefaultAssets();
 		}
 
 		private void AssignAssets(StyleAssetPathBundle styleAssetPathBundle)
@@ -173,69 +175,72 @@
 		}
 
 		/// <summary>
-		/// Sets up default values for GeometryMaterial Options.
-		/// If style is set to Custom, user defined values will be used.
+		/// Sets up default values for GeometryMaterial Options. 
+		/// If style is set to Custom, user defined values will be used. 
 		/// </summary>
 		public void SetDefaultMaterialOptions()
 		{
-			string styleName = style.ToString();
 
-			if (customStyleOptions == null)
 			{
-				customStyleOptions = new CustomStyleBundle();
-				customStyleOptions.SetDefaultAssets();
-			}
-			if (style == StyleTypes.Custom)
-			{
-				//nothing to do. Use custom settings
-			}
-			else
-			{
-				string samplePaletteName = samplePalettes.ToString();
+				string styleName = style.ToString();
 
-				string path = Path.Combine(Constants.Path.MAP_FEATURE_STYLES_SAMPLES, Path.Combine(styleName, Constants.Path.MAPBOX_STYLES_ASSETS_FOLDER));
+				if (customStyleOptions == null)
+				{
+					customStyleOptions = new CustomStyleBundle();
+					customStyleOptions.SetDefaultAssets();
+				}
+				if (style == StyleTypes.Custom)
+				{
+					//nothing to do. Use custom settings
+				}
+				else
+				{
+					string samplePaletteName = samplePalettes.ToString();
 
-				StyleAssetPathBundle styleAssetPathBundle = new StyleAssetPathBundle(styleName, path, samplePaletteName);
+					string path = Path.Combine(Constants.Path.MAP_FEATURE_STYLES_SAMPLES, Path.Combine(styleName, Constants.Path.MAPBOX_STYLES_ASSETS_FOLDER));
 
-				AssignAssets(styleAssetPathBundle);
-			}
+					StyleAssetPathBundle styleAssetPathBundle = new StyleAssetPathBundle(styleName, path, samplePaletteName);
 
-			switch (style)
-			{
-				case StyleTypes.Light:
-					Color lightColor = materials[0].Materials[0].color;
-					lightColor.a = lightStyleOpacity;
-					materials[0].Materials[0].color = lightColor;
+					AssignAssets(styleAssetPathBundle);
+				}
 
-					lightColor = materials[1].Materials[0].color;
-					lightColor.a = lightStyleOpacity;
-					materials[1].Materials[0].color = lightColor;
-					break;
-				case StyleTypes.Dark:
-					Color darkColor = materials[0].Materials[0].color;
-					darkColor.a = darkStyleOpacity;
-					materials[0].Materials[0].color = darkColor;
+				switch (style)
+				{
+					case StyleTypes.Light:
+						Color lightColor = materials[0].Materials[0].color;
+						lightColor.a = lightStyleOpacity;
+						materials[0].Materials[0].color = lightColor;
 
-					darkColor = materials[1].Materials[0].color;
-					darkColor.a = darkStyleOpacity;
-					materials[1].Materials[0].color = darkColor;
-					break;
-				case StyleTypes.Color:
-					Color color = colorStyleColor;
-					materials[0].Materials[0].color = color;
-					materials[1].Materials[0].color = color;
-					break;
-				default:
-					break;
-			}
+						lightColor = materials[1].Materials[0].color;
+						lightColor.a = lightStyleOpacity;
+						materials[1].Materials[0].color = lightColor;
+						break;
+					case StyleTypes.Dark:
+						Color darkColor = materials[0].Materials[0].color;
+						darkColor.a = darkStyleOpacity;
+						materials[0].Materials[0].color = darkColor;
 
-			if (style == StyleTypes.Satellite)
-			{
-				texturingType = UvMapType.Tiled;
-			}
-			else
-			{
-				texturingType = (style != StyleTypes.Custom && style == StyleTypes.Simple) ? UvMapType.AtlasWithColorPalette : UvMapType.Atlas;
+						darkColor = materials[1].Materials[0].color;
+						darkColor.a = darkStyleOpacity;
+						materials[1].Materials[0].color = darkColor;
+						break;
+					case StyleTypes.Color:
+						Color color = colorStyleColor;
+						materials[0].Materials[0].color = color;
+						materials[1].Materials[0].color = color;
+						break;
+					default:
+						break;
+				}
+
+				if (style == StyleTypes.Satellite)
+				{
+					texturingType = UvMapType.Tiled;
+				}
+				else
+				{
+					texturingType = (style != StyleTypes.Custom && style == StyleTypes.Simple) ? UvMapType.AtlasWithColorPalette : UvMapType.Atlas;
+				}
 			}
 		}
 
@@ -247,34 +252,10 @@
 			AtlasInfo atlas = Resources.Load(styleAssetPathBundle.atlasPath, typeof(AtlasInfo)) as AtlasInfo;
 			ScriptablePalette palette = Resources.Load(styleAssetPathBundle.palettePath, typeof(ScriptablePalette)) as ScriptablePalette;
 
-			Material[] tempMaterials = new Material[2];
-
-
-			for (int i = 0; i < materials.Length; i++)
-			{
-				if (materials[i].Materials[0] != null)
-				{
-					tempMaterials[i] = materials[i].Materials[0];
-					materials[i].Materials[0] = null;
-				}
-			}
-
 			materials[0].Materials[0] = new Material(topMaterial);
 			materials[1].Materials[0] = new Material(sideMaterial);
-
-			for (int i = 0; i < materials.Length; i++)
-			{
-				if (tempMaterials[i] != null)
-				{
-					tempMaterials[i].Destroy();
-				}
-			}
-
-			Resources.UnloadUnusedAssets();
-
 			atlasInfo = atlas;
 			colorPalette = palette;
-
 		}
 
 		public void SetDefaultAssets(UvMapType mapType = UvMapType.Atlas)
@@ -291,7 +272,6 @@
 		public void SetStyleType(StyleTypes styleType)
 		{
 			style = styleType;
-			HasChanged = true;
 		}
 
 
@@ -313,7 +293,7 @@
 		{
 			get
 			{
-				return typeof(PolygonMeshModifier);
+				return typeof(UvModifier);
 			}
 		}
 		public StyleTypes style;

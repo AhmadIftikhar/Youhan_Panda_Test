@@ -17,9 +17,9 @@
 		[SerializeField]
 		bool _sendEvent;
 
-		WaitForSeconds _wait = new WaitForSeconds(0);
+		WaitForSeconds _wait = new WaitForSeconds(1f);
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR || UNITY_STANDALONE
 		protected virtual void Awake()
 		{
 			_wait = new WaitForSeconds(_updateInterval);

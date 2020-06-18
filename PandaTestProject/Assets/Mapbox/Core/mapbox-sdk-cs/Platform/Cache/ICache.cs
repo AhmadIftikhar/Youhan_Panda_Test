@@ -10,7 +10,7 @@ namespace Mapbox.Platform.Cache
 	{
 
 		/// <summary>
-		/// Maximum number of tiles to store
+		/// Maximum number of tiles to store 
 		/// </summary>
 		uint MaxCacheSize { get; }
 
@@ -18,20 +18,20 @@ namespace Mapbox.Platform.Cache
 		/// <summary>
 		/// Add tile data to the cache
 		/// </summary>
-		/// <param name="tilesetId">Tile set name</param>
-		/// <param name="tileId</param>
+		/// <param name="mapId">Tile set name</param>
+		/// <param name="tileId">Tile ID</param>
 		/// <param name="item">Item to cache</param>
 		/// <param name="replaceIfExists">Force insert even if item already exists.</param>
-		void Add(string tilesetId, CanonicalTileId tileId, CacheItem item, bool replaceIfExists);
+		void Add(string mapId, CanonicalTileId tileId, CacheItem item, bool replaceIfExists);
 
 
 		/// <summary>
 		/// Get tile
 		/// </summary>
-		/// <param name="tilesetId"></param>
+		/// <param name="mapId"></param>
 		/// <param name="tileId"></param>
 		/// <returns>byte[] with tile data. Null if requested tile is not in cache</returns>
-		CacheItem Get(string tilesetId, CanonicalTileId tileId);
+		CacheItem Get(string mapId, CanonicalTileId tileId);
 
 
 		/// <summary>Clear cache for all tile sets</summary>
@@ -41,8 +41,8 @@ namespace Mapbox.Platform.Cache
 		/// <summary>
 		/// Clear cache for one tile set
 		/// </summary>
-		/// <param name="tilesetId"></param>
-		void Clear(string tilesetId);
+		/// <param name="mapId"></param>
+		void Clear(string mapId);
 
 
 		/// <summary>

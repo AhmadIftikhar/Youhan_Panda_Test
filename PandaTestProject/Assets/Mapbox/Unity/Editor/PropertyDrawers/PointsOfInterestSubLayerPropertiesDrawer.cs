@@ -12,7 +12,8 @@ namespace Mapbox.Unity.Map
 		string objectId = "";
 		static float _lineHeight = EditorGUIUtility.singleLineHeight;
 
-		FeatureSubLayerTreeView layerTreeView;
+		//PointsOfInterestSubLayerTreeView layerTreeView = new PointsOfInterestSubLayerTreeView(new TreeViewState());
+		FeatureSubLayerTreeView layerTreeView;// = new FeatureSubLayerTreeView
 		IList<int> selectedLayers = new List<int>();
 
 		private TreeModel<FeatureTreeElement> treeModel;
@@ -23,7 +24,6 @@ namespace Mapbox.Unity.Map
 		MultiColumnHeaderState m_MultiColumnHeaderState;
 
 		bool m_Initialized = false;
-		public bool isLayerAdded = false;
 
 		int SelectionIndex
 		{
@@ -115,6 +115,8 @@ namespace Mapbox.Unity.Map
 
 			if (GUILayout.Button(new GUIContent("Add Layer"), (GUIStyle)"minibuttonleft"))
 			{
+
+				//GUILayout.Space(EditorGUIUtility.singleLineHeight);
 				prefabItemArray.arraySize++;
 
 				var prefabItem = prefabItemArray.GetArrayElementAtIndex(prefabItemArray.arraySize - 1);
@@ -142,7 +144,8 @@ namespace Mapbox.Unity.Map
 
 				if (EditorHelper.DidModifyProperty(property))
 				{
-					isLayerAdded = true;
+					PrefabItemOptions prefabItemOptionToAdd = (PrefabItemOptions)EditorHelper.GetTargetObjectOfProperty(prefabItem) as PrefabItemOptions;
+					((VectorLayerProperties)EditorHelper.GetTargetObjectOfProperty(property)).OnSubLayerPropertyAdded(new VectorLayerUpdateArgs { property = prefabItemOptionToAdd });
 				}
 			}
 
@@ -219,7 +222,7 @@ namespace Mapbox.Unity.Map
 				var subLayer = subLayerArray.GetArrayElementAtIndex(i);
 				name = subLayer.FindPropertyRelative("coreOptions.sublayerName").stringValue;
 				id = i + FeatureSubLayerTreeView.uniqueIdPoI;
-				type = PresetFeatureType.Points.ToString();
+				type = PresetFeatureType.Points.ToString();//((PresetFeatureType)subLayer.FindPropertyRelative("presetFeatureType").enumValueIndex).ToString();
 				FeatureTreeElement element = new FeatureTreeElement(name, 0, id);
 				element.Name = name;
 				element.name = name;

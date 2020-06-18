@@ -63,7 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AgoraEngine\Editor\BL_BuildPostProcess.cs" />
     <Compile Include="Assets\UChromaKey\Editor\UChromaKey_DS_unlit_editor.cs" />
     <Compile Include="Assets\UChromaKey\Editor\UChromaKey_editor.cs" />
     <Reference Include="UnityEngine">

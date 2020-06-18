@@ -43,9 +43,9 @@ namespace Mapbox.Platform.Cache
 		}
 
 
-		public void Add(string mapdId, CanonicalTileId tilesetId, CacheItem item, bool forceInsert)
+		public void Add(string mapdId, CanonicalTileId tileId, CacheItem item, bool forceInsert)
 		{
-			string key = mapdId + "||" + tilesetId;
+			string key = mapdId + "||" + tileId;
 
 			lock (_lock)
 			{
@@ -64,9 +64,9 @@ namespace Mapbox.Platform.Cache
 		}
 
 
-		public CacheItem Get(string tilesetId, CanonicalTileId tileId)
+		public CacheItem Get(string mapId, CanonicalTileId tileId)
 		{
-			string key = tilesetId + "||" + tileId;
+			string key = mapId + "||" + tileId;
 
 #if MAPBOX_DEBUG_CACHE
 			string methodName = _className + "." + new System.Diagnostics.StackFrame().GetMethod().Name;
@@ -94,12 +94,12 @@ namespace Mapbox.Platform.Cache
 		}
 
 
-		public void Clear(string tilesetId)
+		public void Clear(string mapId)
 		{
 			lock (_lock)
 			{
-				tilesetId += "||";
-				List<string> toDelete = _cachedResponses.Keys.Where(k => k.Contains(tilesetId)).ToList();
+				mapId += "||";
+				List<string> toDelete = _cachedResponses.Keys.Where(k => k.Contains(mapId)).ToList();
 				foreach (string key in toDelete)
 				{
 					_cachedResponses.Remove(key);

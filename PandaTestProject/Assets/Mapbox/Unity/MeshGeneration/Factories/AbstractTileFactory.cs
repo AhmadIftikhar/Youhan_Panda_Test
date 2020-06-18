@@ -35,14 +35,21 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 		protected IFileSource _fileSource;
 
 		protected LayerProperties _options;
-
 		public LayerProperties Options
 		{
-			get { return _options; }
+			get
+			{
+				return _options;
+			}
 		}
 
 		protected HashSet<UnityTile> _tilesWaitingResponse;
 		protected HashSet<UnityTile> _tilesWaitingProcessing;
+
+		/// <summary>
+		/// The  <c>OnTileError</c> event triggers when there's <c>Tile</c> error.
+		/// Returns a <see cref="T:Mapbox.Map.TileErrorEventArgs"/> instance as a parameter, for the tile on which error occurred.
+		/// </summary>
 
 		public virtual void SetOptions(LayerProperties options)
 		{
@@ -95,6 +102,11 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 			}
 		}
 
+		public virtual void Reset()
+		{
+
+		}
+
 		protected abstract void OnInitialized();
 
 		protected abstract void OnRegistered(UnityTile tile);
@@ -124,9 +136,5 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 		}
 		#endregion
 
-		public virtual void Clear()
-		{
-
-		}
 	}
 }
