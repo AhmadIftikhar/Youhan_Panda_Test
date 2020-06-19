@@ -20,7 +20,7 @@ public class RotateTowardCameraQuadrant : MonoBehaviour
     /// <summary>
     /// helpers to debug what angle we see
     /// </summary>
-  /*  void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Vector3 direction = transform.TransformDirection(map.transform.forward) * 500;
@@ -33,7 +33,7 @@ public class RotateTowardCameraQuadrant : MonoBehaviour
         Gizmos.DrawRay(transform.position, direction1);
 
     }
-  */
+  
         void Update()
     {
 
