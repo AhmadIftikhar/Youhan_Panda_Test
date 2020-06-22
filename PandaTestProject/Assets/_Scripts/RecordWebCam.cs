@@ -16,7 +16,10 @@ public class RecordWebCam : MonoBehaviour, IAudioProcessor
     [Header("Recording")]
     public int videoWidth;
     public int videoHeight;
-    
+    float startTime;
+    float endTime;
+
+    public static  float RECORDEDTIME;
     public  RenderTexture replayRenderTexture;
 
     private IAudioDevice audioDevice;
@@ -30,7 +33,7 @@ public class RecordWebCam : MonoBehaviour, IAudioProcessor
 
     public RawImage Cameradisplay;
     public Button StartStopCamera;
-    
+    public static RecordWebCam instance;
     WebCamTexture cameraTexture;
 
     //start Camera
@@ -69,8 +72,11 @@ public class RecordWebCam : MonoBehaviour, IAudioProcessor
 
 	public void RecordonNatCoder()
         {
-      //  replayRenderTexture.width = videoWidth;
-     //   replayRenderTexture.height = videoHeight;
+        //  replayRenderTexture.width = videoWidth;
+        //   replayRenderTexture.height = videoHeight;
+
+
+         startTime = Time.time;
 
         StartStopCamera.onClick.RemoveListener(RecordonNatCoder);
         StartStopCamera.GetComponentInChildren<Text>().text = "Stop";
@@ -88,7 +94,7 @@ public class RecordWebCam : MonoBehaviour, IAudioProcessor
             channelCount,
             OnReplay
         );
-
+   
         cameraInput = new CameraInput(videoRecorder, recordingClock, Camera.main);
         audioDevice = AudioDevice.Devices[0];
         audioDevice.StartRecording(sampleRate, channelCount, this);
@@ -116,8 +122,11 @@ public class RecordWebCam : MonoBehaviour, IAudioProcessor
 
 	public async void stopRecording()
     {
-        Debug.Log("Recording stopped");
 
+        endTime = Time.time;
+
+        RECORDEDTIME=endTime=startTime;
+        Debug.Log("Recording stopped after time" +RECORDEDTIME);
 
         // Stop the recording inputs
         audioDevice.StopRecording();
