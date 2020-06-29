@@ -44,7 +44,7 @@ public class ReSaveTransparentvideo : MonoBehaviour, IAudioProcessor
         video.Stop();
         video.Play();
       
-        Invoke("stopRecording", RecordWebCam..RECORDEDTIME );
+        Invoke("stopRecording", RecordWebCam.RECORDEDTIME );
         var sampleRate = 44100;
         var channelCount = 2;
         Debug.Log("Recording Started");

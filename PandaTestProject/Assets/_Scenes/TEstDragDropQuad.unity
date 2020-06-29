@@ -182,6 +182,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -288,6 +290,8 @@ MonoBehaviour:
           m_StringArgument: animate
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &213803400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +310,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: d7aba058e99c68143bd235063af033eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -378,6 +384,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
@@ -407,13 +415,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1654832105, guid: 6a843e4711a124e39a8f482dcdcbff78, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1724495677833654, guid: 6a843e4711a124e39a8f482dcdcbff78, type: 3}
       propertyPath: m_Name
       value: Parse Initializer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654832105, guid: 6a843e4711a124e39a8f482dcdcbff78, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4892985982475242, guid: 6a843e4711a124e39a8f482dcdcbff78, type: 3}
       propertyPath: m_LocalPosition.x
@@ -561,6 +569,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &435168412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,6 +589,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -801,6 +813,8 @@ MonoBehaviour:
           m_StringArgument: animate
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &656615592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,6 +833,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -975,6 +991,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &714738537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -993,6 +1011,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -1318,6 +1338,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
@@ -1526,6 +1548,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1646,6 +1670,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.Scrollbar+ScrollEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1484757065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1664,6 +1690,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: ae30072a59a25814e8cfe4b1f70242ed, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -1736,6 +1764,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1826,20 +1856,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1829824292}
     m_Modifications:
-    - target: {fileID: 613974324, guid: 10b25a780c2fa4a49af4d4e37eacd05c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 1107067430830148034, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
+        type: 3}
+      propertyPath: m_Name
+      value: Item
       objectReference: {fileID: 0}
-    - target: {fileID: 1107067430830148032, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
-        type: 3}
-      propertyPath: imageholder
-      value: 
-      objectReference: {fileID: 1107067429104301803}
-    - target: {fileID: 1107067430830148032, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
-        type: 3}
-      propertyPath: TextDescription
-      value: 
-      objectReference: {fileID: 1107067429104301802}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1898,22 +1919,22 @@ PrefabInstance:
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 457.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -150
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 915
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 300
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
@@ -1923,7 +1944,7 @@ PrefabInstance:
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
@@ -1933,7 +1954,7 @@ PrefabInstance:
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
@@ -1945,11 +1966,20 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1107067430830148034, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
-        type: 3}
-      propertyPath: m_Name
-      value: Item
+    - target: {fileID: 613974324, guid: 10b25a780c2fa4a49af4d4e37eacd05c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1107067430830148032, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
+        type: 3}
+      propertyPath: imageholder
+      value: 
+      objectReference: {fileID: 1107067429104301803}
+    - target: {fileID: 1107067430830148032, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
+        type: 3}
+      propertyPath: TextDescription
+      value: 
+      objectReference: {fileID: 1107067429104301802}
     m_RemovedComponents:
     - {fileID: 1107067430553041657, guid: 10b25a780c2fa4a49af4d4e37eacd05c, type: 3}
     - {fileID: 1107067430841544895, guid: 10b25a780c2fa4a49af4d4e37eacd05c, type: 3}
@@ -1984,6 +2014,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
@@ -2016,6 +2048,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0

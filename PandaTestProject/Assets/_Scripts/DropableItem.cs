@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
+
 public class DropableItem : MonoBehaviour ,IDragHandler,IEndDragHandler,IBeginDragHandler
 {
 	public Image imageholder;
 	public Sprite unavailableImage;
 	public bool Hittingplane;
-
+	public UnityEvent placedobject;
 	public bool startDrag;
 
 	public Text TextDescription;
@@ -139,6 +141,10 @@ public class DropableItem : MonoBehaviour ,IDragHandler,IEndDragHandler,IBeginDr
 			Quadinstance.GetComponent<Renderer>().material = mat;
 
 			Quad.SetActive(false);
+
+			RetrieveApiSketchFab.instance.DownloadModel();
+
+			placedobject.Invoke();
 		}
 
 		imageholder.enabled = true;

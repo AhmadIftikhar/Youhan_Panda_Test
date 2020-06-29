@@ -10,6 +10,8 @@ using NatCorder.Inputs;
 using NatCorder.Clocks;
 using NatMic;
 using UnityEngine.Events;
+using UnityEngine.Android;
+
 public class RecordWebCam : MonoBehaviour, IAudioProcessor
     {
 
