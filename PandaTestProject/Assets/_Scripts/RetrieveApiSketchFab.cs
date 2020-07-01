@@ -8,11 +8,13 @@ using System.Net;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-
+using System.IO.Compression;
 public class RetrieveApiSketchFab : MonoBehaviour
 {
 	//public Sprite[] DragableImages;
 	public string CurrentModelUId = null;
+	public string CurrentModelZipPath = null;
+	public string CurrentModeleztractPath = null;
 
 	public GameObject ItemPrefab;
 	public GameObject map;
@@ -21,7 +23,11 @@ public class RetrieveApiSketchFab : MonoBehaviour
 	public InputField SearchBaar;
 	public IEnumerable<ParseObject> Results { get; private set; }
 	public static RetrieveApiSketchFab instance;
-	 void Start()
+	
+	
+	
+	
+	void Start()
 	{
 		instance = this;
 		singleSize = scroll.content.sizeDelta;
@@ -233,10 +239,14 @@ public class RetrieveApiSketchFab : MonoBehaviour
 		{
 
 		WebClient client = new WebClient();
-		String path = "@" + Application.dataPath.ToString() + "/" + filename;
+		String path = Application.persistentDataPath + "/" +  filename;
 		Debug.Log(path);
-		client.DownloadFile(url,filename);
-		
+
+		client.DownloadFileCompleted += new System.ComponentModel.AsyncCompletedEventHandler(DownloadFileCompleted);
+		client.DownloadFileAsync( new Uri(url), path);
+		CurrentModelZipPath = path;
+		CurrentModeleztractPath = Application.persistentDataPath +"/"+CurrentModelUId;
+
 		yield return null;
 /*
 		UnityWebRequest www = UnityWebRequest.Get(url);
@@ -251,4 +261,29 @@ public class RetrieveApiSketchFab : MonoBehaviour
 
 		}*/
 	}
+
+	void DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+	{
+		if (e.Error!=null) 
+		{
+			Debug.Log(e.Error.Message);
+		}
+
+		if (e.Error == null)
+		{
+			ExtractFile();
+		}
 	}
+
+	private void ExtractFile()
+	{
+		string startPath = Application.persistentDataPath;
+		string zipPath = CurrentModelZipPath;
+		string extractPath = CurrentModeleztractPath;
+		Debug.Log("Extracting file");
+	//	ZipFile.CreateFromDirectory(startPath, zipPath);
+
+		ZipFile.ExtractToDirectory(zipPath, extractPath);
+		Debug.Log("Extracting file called");
+	}
+}

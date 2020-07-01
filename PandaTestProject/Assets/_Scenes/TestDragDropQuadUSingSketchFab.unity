@@ -925,6 +925,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentModelUId: 
+  CurrentModelZipPath: 
+  CurrentModeleztractPath: 
   ItemPrefab: {fileID: 1107067430830148034, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
     type: 3}
   map: {fileID: 1369999525}
@@ -1710,7 +1712,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1710171212}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.82176554
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2172,22 +2174,22 @@ PrefabInstance:
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 457.5
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 915
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
@@ -2197,7 +2199,7 @@ PrefabInstance:
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
@@ -2207,7 +2209,7 @@ PrefabInstance:
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1107067430830148033, guid: 10b25a780c2fa4a49af4d4e37eacd05c,
         type: 3}

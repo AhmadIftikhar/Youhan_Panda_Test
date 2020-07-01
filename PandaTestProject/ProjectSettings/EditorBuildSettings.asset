@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/TestDragDropQuad.unity
     guid: d501482ae7e278946bc45ddd7027963a
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Scenes/TestDragDropQuadUSingSketchFab.unity
     guid: cde02faa9a09dde45a2f559cc98e658e
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/NatCoderRecordAndReplay.unity
     guid: 23556d0e7afcc864d86c77f499afc6af
   m_configObjects: {}
