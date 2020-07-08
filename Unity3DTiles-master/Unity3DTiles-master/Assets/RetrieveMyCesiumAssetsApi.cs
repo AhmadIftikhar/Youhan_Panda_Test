@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-
+using Newtonsoft.Json;
 public class RetrieveMyCesiumAssetsApi : MonoBehaviour
 {
 
@@ -45,8 +45,6 @@ public class RetrieveMyCesiumAssetsApi : MonoBehaviour
 		{
 			Debug.Log(www.downloadHandler.text);
 			MyCesiumAssets responce = JsonConvert.DeserializeObject<MyCesiumAssets>(www.downloadHandler.text);
-
-			StartCoroutine(DownloadModelOverTime(responce.access_token));
 
 		}
 	}

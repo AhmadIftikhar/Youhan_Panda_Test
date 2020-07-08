@@ -181,6 +181,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &556695641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 556695643}
+  - component: {fileID: 556695642}
+  m_Layer: 0
+  m_Name: RetrieveMyCesiumAssetsApi
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &556695642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556695641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9485aa3ab810f3646be62f5403d2571e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &556695643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556695641}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &620535308
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,8 +888,8 @@ MonoBehaviour:
     RequestsThisFrame: 0
     NetworkError: 0
   TilesetOptions:
-    Name: 
-    Url: file:\\C:\OfficeWork\SampleTileset\tileset.json
+    Name: RetrieveMyCesiumAssetsApi
+    Url: https://assets.cesium.com/96188/tileset.json?=1
     Show: 1
     MaximumScreenSpaceError: 2
     SkipScreenSpaceErrorMultiplier: 120
