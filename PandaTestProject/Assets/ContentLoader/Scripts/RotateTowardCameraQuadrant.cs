@@ -23,7 +23,7 @@ public class RotateTowardCameraQuadrant : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Vector3 direction = transform.TransformDirection(map.transform.forward) * 500;
+        Vector3 direction = transform.TransformDirection(map.transform.forward) * 50;
         Gizmos.DrawRay(map.transform.position, direction);
 
 

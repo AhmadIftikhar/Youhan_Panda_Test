@@ -1,4 +1,4 @@
-﻿using Mapbox.Json;
+﻿using Newtonsoft.Json;
 using Parse;
 using System;
 using System.Collections;
@@ -282,8 +282,8 @@ public class RetrieveApiSketchFab : MonoBehaviour
 		string extractPath = CurrentModeleztractPath;
 		Debug.Log("Extracting file");
 	//	ZipFile.CreateFromDirectory(startPath, zipPath);
-
 		ZipFile.ExtractToDirectory(zipPath, extractPath);
 		Debug.Log("Extracting file called");
+		Debug.Log("File Extracted at " + extractPath);
 	}
 }

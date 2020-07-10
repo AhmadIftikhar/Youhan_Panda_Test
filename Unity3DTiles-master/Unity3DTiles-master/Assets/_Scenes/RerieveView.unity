@@ -197,7 +197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &556695642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9485aa3ab810f3646be62f5403d2571e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JsonPath: file:///C:/Reccccc/tileset.json
 --- !u!4 &556695643
 Transform:
   m_ObjectHideFlags: 0
@@ -492,7 +493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &803833714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,42 +768,42 @@ PrefabInstance:
     - target: {fileID: 3376399833653726986, guid: 5b36edd38769f254e8ee3f629b1741a6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 79
       objectReference: {fileID: 0}
     - target: {fileID: 3376399833653726986, guid: 5b36edd38769f254e8ee3f629b1741a6,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 3376399834326130634, guid: 5b36edd38769f254e8ee3f629b1741a6,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3376399834326130634, guid: 5b36edd38769f254e8ee3f629b1741a6,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3376399834326130634, guid: 5b36edd38769f254e8ee3f629b1741a6,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3376399834326130634, guid: 5b36edd38769f254e8ee3f629b1741a6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 3376399834326130634, guid: 5b36edd38769f254e8ee3f629b1741a6,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 3376399834326130634, guid: 5b36edd38769f254e8ee3f629b1741a6,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b36edd38769f254e8ee3f629b1741a6, type: 3}
@@ -843,7 +844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1657570805
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -57,12 +57,9 @@ namespace NatCorder.Inputs {
         private int frameCount;
 
         private void OnFrame () {
-
             // Check frame index
             if (frameCount++ % recordEveryNthFrame != 0)
                 return;
-
-        
             // Acquire frame
             var encoderFrame = mediaRecorder.AcquireFrame();
             // Render every camera

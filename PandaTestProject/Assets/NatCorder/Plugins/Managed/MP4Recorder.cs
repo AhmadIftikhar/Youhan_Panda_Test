@@ -10,12 +10,11 @@ namespace NatCorder {
     using System.IO;
     using Platforms;
     using Docs;
-	using System.Threading.Tasks;
 
-	/// <summary>
-	/// Recorder for recording MP4 videos encoded with the H.264 AVC/AAC codecs
-	/// </summary>
-	[Doc(@"MP4Recorder")]
+    /// <summary>
+    /// Recorder for recording MP4 videos encoded with the H.264 AVC/AAC codecs
+    /// </summary>
+    [Doc(@"MP4Recorder")]
     public sealed class MP4Recorder : IMediaRecorder {
 
         #region --Client API--
@@ -32,12 +31,11 @@ namespace NatCorder {
         /// <param name="videoKeyframeInterval">Keyframe interval in seconds</param>
         [Doc(@"MP4RecorderCtor")]
         public MP4Recorder (int videoWidth, int videoHeight, int videoFramerate, int audioSampleRate, int audioChannelCount, Action<string> recordingCallback, int videoBitrate = (int)(960 * 540 * 11.4f), int videoKeyframeInterval = 3) {
-
             videoWidth = videoWidth >> 1 << 1;
             videoHeight = videoHeight >> 1 << 1;
             var readbackFormat = TextureFormat.RGBA32;
             var recordingDirectory = Application.persistentDataPath;
-            var recordingFilename = string.Format("recording_{0}.mp4", DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss"));
+            var recordingFilename = string.Format("recording_{0}.mp4", DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff"));
             switch (Application.platform) {
                 case RuntimePlatform.OSXEditor:
                     recordingDirectory = Directory.GetCurrentDirectory();
@@ -69,16 +67,11 @@ namespace NatCorder {
             }
         }
 
-		internal Task FinishWriting()
-		{
-			throw new NotImplementedException();
-		}
-
-		/// <summary>
-		/// Stop recording and dispose the recorder.
-		/// The recording callback is expected to be invoked soon after calling this method.
-		/// </summary>
-		[Doc(@"Dispose")]
+        /// <summary>
+        /// Stop recording and dispose the recorder.
+        /// The recording callback is expected to be invoked soon after calling this method.
+        /// </summary>
+        [Doc(@"Dispose")]
         public void Dispose () {
             internalRecorder.Dispose();
         }
