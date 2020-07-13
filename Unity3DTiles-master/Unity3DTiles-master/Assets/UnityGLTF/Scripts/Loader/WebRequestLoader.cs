@@ -32,7 +32,7 @@ namespace UnityGLTF.Loader
 
             UnityWebRequest www = new UnityWebRequest(Path.Combine(rootUri, httpRequestPath), "GET",
                 new DownloadHandlerBuffer(), null);
-            www.SetRequestHeader("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NWE0ZDc1NC00NWQ4LTQwODctYWEwMy00MGUxYmMzMTEzYjMiLCJpZCI6Mjk5MDYsImFzc2V0cyI6eyI5NjE4OCI6eyJ0eXBlIjoiM0RUSUxFUyJ9fSwic3JjIjoiMTJkNGJmNTktNzM5MC00MzNkLWE0NTItNzY4NzRkNDcwNzZiIiwiaWF0IjoxNTk0MjEwMDEwLCJleHAiOjE1OTQyMTM2MTB9.7Ju44w54wugjceiRorSDQ4itkZpk2WvA0rwtKmoKU_c");
+            www.SetRequestHeader("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwNWE2ODRlZC1lNmNmLTQ5NTQtOGM5NS1iYTY1ZjdkNzI3MzIiLCJpZCI6MzAzNzMsImFzc2V0cyI6eyIxMjE5MDAiOnsidHlwZSI6IjNEVElMRVMifX0sInNyYyI6IjMxYjJmY2UxLTVkOTgtNDljNS05NTgwLWFmY2Y0MjcyZjQxMyIsImlhdCI6MTU5NDQwNzEwMywiZXhwIjoxNTk0NDEwNzAzfQ.XZr_vw4hnBrpETEFuNmj6d2SLrD382A9xdbjROy3RHI");
 
             www.timeout = 5000;
 #if UNITY_2017_2_OR_NEWER
