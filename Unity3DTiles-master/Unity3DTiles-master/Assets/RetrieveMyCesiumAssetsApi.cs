@@ -8,11 +8,18 @@ using System.IO;
 using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.GZip;
 using JetBrains.Annotations;
+using Unity3DTiles.Schema;
+using System.Runtime.Serialization.Formatters.Binary;
+using Unity3DTiles;
 
 public class RetrieveMyCesiumAssetsApi : MonoBehaviour
 {
 	public string JsonPath;
 	public ArrayList asseturls = new ArrayList();
+	public TilesetBehaviour Tset;
+	public string assetId;
+	public float TimetoDownload=15f;
+	public string entryaccesstokken="";
 	public class Item
 	{
 		public int id { get; set; }
@@ -39,10 +46,9 @@ public class RetrieveMyCesiumAssetsApi : MonoBehaviour
 	
 
 		UnityWebRequest www = UnityWebRequest.Get("https://api.cesium.com/v1/assets");
-		www.SetRequestHeader("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzMWIyZmNlMS01ZDk4LTQ5YzUtOTU4MC1hZmNmNDI3MmY0MTMiLCJpZCI6MzAzNzMsInNjb3BlcyI6WyJhc2wiLCJhc3IiLCJhc3ciLCJnYyIsInByIl0sImlhdCI6MTU5NDMxNzMwMX0.4UsZW9AtQBFQFzdFbQMf_TY-42ZyUK-7kAwJE8BUZLI");
+		www.SetRequestHeader("Authorization", "Bearer " + entryaccesstokken);
 
-
-		yield return www.SendWebRequest();
+	  yield return www.SendWebRequest();
 
 		if (www.isNetworkError || www.isHttpError)
 		{
@@ -77,8 +83,12 @@ public class RetrieveMyCesiumAssetsApi : MonoBehaviour
 
 	private IEnumerator GetAssetTokken()
 	{
-		UnityWebRequest www = UnityWebRequest.Get("https://api.cesium.com/v1/assets/121900/endpoint");
-		www.SetRequestHeader("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzMWIyZmNlMS01ZDk4LTQ5YzUtOTU4MC1hZmNmNDI3MmY0MTMiLCJpZCI6MzAzNzMsInNjb3BlcyI6WyJhc2wiLCJhc3IiLCJhc3ciLCJnYyIsInByIl0sImlhdCI6MTU5NDMxNzMwMX0.4UsZW9AtQBFQFzdFbQMf_TY-42ZyUK-7kAwJE8BUZLI");
+
+
+		string url = "https://api.cesium.com/v1/assets/" + assetId + "/endpoint";
+		Debug.Log(url);
+		UnityWebRequest www = UnityWebRequest.Get(url);
+		www.SetRequestHeader("Authorization", "Bearer " + entryaccesstokken);
 		yield return www.SendWebRequest();
 
 		if (www.isNetworkError || www.isHttpError)
@@ -94,38 +104,6 @@ public class RetrieveMyCesiumAssetsApi : MonoBehaviour
 
 			StartCoroutine(DownnloadTileset(responce));
 		}
-	}
-
-
-
-
-	private IEnumerator ReadTilesetfromFile() 
-	{
-	/*	using (StreamReader r = new StreamReader("file.json"))
-		{
-			string json = r.ReadToEnd();
-			List<Item> items = JsonConvert.DeserializeObject<List<Item>>(json);
-
-
-		}*/
-
-
-		UnityWebRequest www = UnityWebRequest.Get(JsonPath);
-		yield return www.SendWebRequest();
-		if (www.isNetworkError || www.isHttpError)
-		{
-			Debug.Log(www.error);
-		}
-		else
-		{
-
-			//		Debug.Log(www.downloadHandler.data);
-			Debug.Log(www.downloadHandler.text);
-			Test.Root myDeserializedClass = JsonConvert.DeserializeObject<Test.Root>(www.downloadHandler.text);
-			Test.Root tileset = JsonConvert.DeserializeObject<Test.Root>(www.downloadHandler.text);
-			Debug.Log(myDeserializedClass.asset.version);
-		}
-
 	}
 
 
@@ -202,11 +180,16 @@ public class RetrieveMyCesiumAssetsApi : MonoBehaviour
 
 			string data = reader.ReadToEnd().ToString();
 			Debug.Log(data);
+			string spath = path + ".json";
+
+		
 			Test.Root myDeserializedClass = JsonConvert.DeserializeObject<Test.Root>(data);
-		
 			reader.Close();
-		
-	///First Base Object
+			SaveasJson(data, spath);
+
+			///First Base Object
+			///
+			if (myDeserializedClass.root.content != null) 
 			asseturls.Add(myDeserializedClass.root.content.uri);
 			ParseChildren(myDeserializedClass.root.children);
 
@@ -226,6 +209,7 @@ public class RetrieveMyCesiumAssetsApi : MonoBehaviour
 			string tempurl = Url.Replace("tileset.json", x);
 			StartCoroutine(DownnloadTileset3dmodels(tempurl, accesstokken, x));
 		}
+		Invoke("Enabletilesetwithpath", TimetoDownload);
 	}
 
 	private IEnumerator DownnloadTileset3dmodels(string url, string accesstokken, string filename)
@@ -257,12 +241,38 @@ public class RetrieveMyCesiumAssetsApi : MonoBehaviour
 		}
 	}
 
+
+
+	public void SaveasJson(string TilesetData, String Path) 
+	{
+
+		StreamWriter writer = new StreamWriter(Path, true);
+		writer.WriteLine(TilesetData);
+		writer.Close();
+	}
+
+
+
+
+	public void Enabletilesetwithpath() 
+	{
+
+		string p1 = Application.dataPath;
+
+#if UNITY_EDITOR
+		p1 = p1.Replace("/Assets", "");
+		p1 = p1 + "/Downloaded/Tileset.json";
+#endif
+
+		Tset.TilesetOptions.Url = p1;
+		Tset.gameObject.SetActive(true);
+	}
 	public void ParseChildren(List<Test.Child> Children) 
 	{
 		foreach (Test.Child X in Children) 
-		{
-			asseturls.Add(X.content.uri);
-			Debug.Log("Added Object" + X.content.uri+"  Current Count is "+  asseturls.Count);
+		{		if (X.content != null)
+			{ asseturls.Add(X.content.uri); }
+			//Debug.Log("Added Object" + X.content.uri+"  Current Count is "+  asseturls.Count);
 			if (X.children != null)
 			{ 
 				ParseChildren(X.children); 
@@ -291,20 +301,6 @@ public class RetrieveMyCesiumAssetsApi : MonoBehaviour
 			}
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
