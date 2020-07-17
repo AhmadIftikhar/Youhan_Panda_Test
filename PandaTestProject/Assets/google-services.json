@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "714012075588",
+    "firebase_url": "https://youhanpandatest.firebaseio.com",
+    "project_id": "youhanpandatest",
+    "storage_bucket": "youhanpandatest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714012075588:android:20e965d29c0f6244503e11",
+        "android_client_info": {
+          "package_name": "com.euphoria.Pandatest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714012075588-bm463gth0d2spiqu14c0fmlp7hnj3nv5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8sKD8YNiGvwkrX43BA0BxO0g6_oV7f_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "714012075588-bm463gth0d2spiqu14c0fmlp7hnj3nv5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "714012075588-s4dfes4ttjo8obt47n9jj4is4a6jjk18.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.euphoria.Pandatest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

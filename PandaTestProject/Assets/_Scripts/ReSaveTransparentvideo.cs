@@ -94,8 +94,10 @@ public class ReSaveTransparentvideo : MonoBehaviour, IAudioProcessor
     private void OnReplay(string path)
     {
         Debug.Log("Saved Transparent recording to: " + path);
-        Handheld.Vibrate();
-        RetreivAndPlayVideo.instance.Setpath(path);
-        OnDoneRecording.Invoke();
+        Handheld.Vibrate();  
+        FirebaseCustomStorageManager.transpath = path;OnDoneRecording.Invoke();
+       // RetreivAndPlayVideo.instance.Setpath(path);
+      
+
     }
 }

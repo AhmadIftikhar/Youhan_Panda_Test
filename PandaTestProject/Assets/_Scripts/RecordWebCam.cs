@@ -116,6 +116,8 @@ public class RecordWebCam : MonoBehaviour, IAudioProcessor
     {
         Debug.Log("Saved recording to: " + path);
         Handheld.Vibrate();
+
+        FirebaseCustomStorageManager.recordpath = path;
         RetreivAndPlayVideo.instance.Setpath(path);
         OnDoneRecording.Invoke();
     }

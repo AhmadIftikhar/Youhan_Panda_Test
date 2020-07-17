@@ -14,7 +14,6 @@ using Unity3DTiles;
 
 public class RetrieveMyCesiumAssetsApi : MonoBehaviour
 {
-	public string JsonPath;
 	public ArrayList asseturls = new ArrayList();
 	public TilesetBehaviour Tset;
 	public string assetId;
