@@ -63,24 +63,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_Scripts\SimulateData.cs" />
-    <Compile Include="Assets\FIrescenarioDataView.cs" />
-    <Compile Include="Assets\ReadFromFile.cs" />
+    <Compile Include="Assets\_Scripts\Classess\AerialThermalDetector.cs" />
+    <Compile Include="Assets\_Scripts\Classess\Anemometer.cs" />
+    <Compile Include="Assets\_Scripts\Classess\officervitalmonitor.cs" />
+    <Compile Include="Assets\_Scripts\Classess\PeopleCounter.cs" />
+    <Compile Include="Assets\_Scripts\Classess\RealtimeAnalyticsToIdentifyStructures.cs" />
+    <Compile Include="Assets\_Scripts\Classess\RealtimeThermaliIageryAnalyticsFromAerialDrone.cs" />
+    <Compile Include="Assets\_Scripts\Classess\RoadClosure.cs" />
+    <Compile Include="Assets\_Scripts\FIrescenarioDataView.cs" />
+    <Compile Include="Assets\_Scripts\ReadFromFile.cs" />
     <None Include="Assets\JsonDotNet\link.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/OfficeWork/DeviceSimulatorData/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/OfficeWork/Youhan_Panda_Test/DeviceSimulatorData/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/OfficeWork/DeviceSimulatorData/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/OfficeWork/Youhan_Panda_Test/DeviceSimulatorData/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/OfficeWork/DeviceSimulatorData/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/OfficeWork/Youhan_Panda_Test/DeviceSimulatorData/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/OfficeWork/DeviceSimulatorData/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/OfficeWork/Youhan_Panda_Test/DeviceSimulatorData/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/OfficeWork/DeviceSimulatorData/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/OfficeWork/Youhan_Panda_Test/DeviceSimulatorData/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Unity Editors/2018.4.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -283,17 +289,17 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Unity Editors/2018.4.2f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:/OfficeWork/Youhan_Panda_Test/DeviceSimulatorData/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/OfficeWork/DeviceSimulatorData/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/OfficeWork/Youhan_Panda_Test/DeviceSimulatorData/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/OfficeWork/DeviceSimulatorData/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/OfficeWork/Youhan_Panda_Test/DeviceSimulatorData/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/OfficeWork/DeviceSimulatorData/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>C:/OfficeWork/DeviceSimulatorData/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/OfficeWork/Youhan_Panda_Test/DeviceSimulatorData/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Unity Editors/2018.4.2f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
