@@ -1457,7 +1457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: -0.000057194873}
   m_SizeDelta: {x: 0, y: 1870.5}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &152939982
@@ -4096,7 +4096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45dd9d523b23a546ae0096fac2d8065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeoffile: 0
+  typeoffile: 1
   SimulateDataFilePath: C:\OfficeWork\Youhan_Panda_Test\DeviceSimulatorData\Assets\CHARIoT_ChallengeData\CHARIoT_Challenge\fire_scenario_data\nist_airquality_fire_data.json
   _prefab: {fileID: 8854280429586919711, guid: 59ed08a7533fb8548b758e1fadf5788d, type: 3}
   scroll: {fileID: 787101598}
@@ -6834,7 +6834,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2014025521}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9912189
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

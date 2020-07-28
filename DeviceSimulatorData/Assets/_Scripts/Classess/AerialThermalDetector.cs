@@ -73,3 +73,9 @@ using UnityEngine;
         public Coords coords { get; set; }
 
     }
+/*
+dictionarty retuyrndictory() 
+{
+
+    return Dictionary<string, Object>;
+}*/

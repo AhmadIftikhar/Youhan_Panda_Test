@@ -1,4 +1,10 @@
 sceneSetups:
-- path: Assets/_Scene/JsonParsin.unity
+- path: Assets/_Scene/DisplayFileDataOnMap.unity
   isLoaded: 1
   isActive: 1
+- path: Assets/Mapbox/Examples/6_ZoomableMap/ZoomableMap.unity
+  isLoaded: 0
+  isActive: 0
+- path: Assets/_Scene/JsonParsin.unity
+  isLoaded: 0
+  isActive: 0
