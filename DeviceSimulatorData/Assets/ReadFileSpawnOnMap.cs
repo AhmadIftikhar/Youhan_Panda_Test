@@ -157,6 +157,7 @@ public class ReadFileSpawnOnMap : MonoBehaviour
 			DateTime.TryParse(RawData[0].Single(s => s.Key == "time").Value as string, out startdatetime);
 		}
 
+
 		if (containsStartTime)
 		{
 			DateTime.TryParse(RawData[0].Single(s => s.Key == "start_time").Value as string, out startdatetime);
@@ -172,13 +173,20 @@ public class ReadFileSpawnOnMap : MonoBehaviour
 
 	private void fetchcurrenttimedevicedata()
 	{
-		
-		Currenttimedisplay.text = currentdatetime.ToLongTimeString();
+	//	2020 - 05 - 19 14:06:24.589692Z
+
+		string DateFormat = "yyyy-MM-d HH:mm:ss";
+	//	string date = DateTime.Now.ToStrign(DateFormat);
+		Currenttimedisplay.text = currentdatetime.ToUniversalTime().ToString(DateFormat);
+
 		foreach (Dictionary<string, object> x in RawData)
 		{
 			DateTime devicetime = new DateTime(); ;
 			if (containtime)
+			{
 				DateTime.TryParse(x.Single(s => s.Key == "time").Value as string, out devicetime);
+			
+			}
 			if (containsStartTime)
 			{
 				DateTime.TryParse(RawData[0].Single(s => s.Key == "start_time").Value as string, out devicetime);
@@ -188,14 +196,15 @@ public class ReadFileSpawnOnMap : MonoBehaviour
 				if (deviceids.Contains(x.Single(s => s.Key == "deviceid").Value as string))
 				{
 					Debug.Log("Update");
-
-					foreach (GameObject device in _devicesDisplay)
+					
+					foreach (GameObject device in _devicesDisplay) //traverse all devices that are available to find current x device 
 					{
-
-
-						Debug.Log(device.name);
-						device.GetComponent<SingleDeviceInfo>().UpdateRealtime(x);
-						// TO do update Device data 
+						String dID = x.Single(s => s.Key == "deviceid").Value as string;
+						if (dID== device.GetComponent<SingleDeviceInfo>().DeviceID)  //only update one Device that is current X
+							{
+								Debug.Log("Updating Device "+dID);
+								device.GetComponent<SingleDeviceInfo>().UpdateRealtime(x); 
+							}
 					}
 				}
 				else
@@ -211,37 +220,28 @@ public class ReadFileSpawnOnMap : MonoBehaviour
 					}
 
 
-
-
-
-
-
-
-
-				}
-			}
-			if (containsGeometry)  /// if the data has geo points to place objects 
-			{
-			
-				if (!line) /// if the data has geometry to draw on map 
-				{
-					if (x.Single(s => s.Key == "geometry").Value != null)
+					if (!containcoordinates && containsGeometry)  /// if the data has geo points to place objects 
 					{
-						object Newtemp = x.Single(s => s.Key == "geometry").Value;
-						Geometry geo = JsonConvert.DeserializeObject<Geometry>(Newtemp.ToString());
-						Debug.Log(Newtemp.ToString());
-						DrawRespondingLine(geo);
-						line = true;
+							if (x.Single(s => s.Key == "geometry").Value != null)
+							{
+								object Newtemp = x.Single(s => s.Key == "geometry").Value;
+								Geometry geo = JsonConvert.DeserializeObject<Geometry>(Newtemp.ToString());
+								Debug.Log(Newtemp.ToString());
+
+							List<double> point = geo.coordinates[0];
+							SpawnOnMapObject.AddLocationstring("" + point[1],""+ point[0], x);
+				
+							}
 					}
 				}
-
-
 			}
 		}
-		if(containcoordinates)
+		if (containtime || containsStartTime)
+		{
+			Debug.Log("Incrementing Time");
 			SpawnOnMapObject.SpawnItemsOnMap();
-		if(containtime)
-		currentdatetime = currentdatetime.AddSeconds(1);
+			currentdatetime = currentdatetime.AddSeconds(1);
+		}
 	}
 
 	public void AddDeviceData(GameObject y)

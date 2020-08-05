@@ -337,19 +337,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b832adf6dd8354a89f9c69bebeaf6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SimulateDataFilePath: C:\OfficeWork\Youhan_Panda_Test\DeviceSimulatorData\Assets\CHARIoT_ChallengeData\CHARIoT_Challenge\fire_scenario_data\nist_fire_traffic.closure.json
+  SimulateDataFilePath: C:\OfficeWork\Youhan_Panda_Test\DeviceSimulatorData\Assets\CHARIoT_ChallengeData\CHARIoT_Challenge\fire_scenario_data\nist_airquality_fire_data.json
   Currenttimedisplay: {fileID: 1356531148}
   SpawnOnMapObject: {fileID: 1088253729}
   _map: {fileID: 1088253728}
   MeshModifiers:
-  - {fileID: 11400000, guid: 72a54fd58e79618408c60d91df61d553, type: 2}
+  - {fileID: 11400000, guid: d31b2cb2a75a54d5bb6402fe0bd8c6cf, type: 2}
+  - {fileID: 11400000, guid: 6350c0a3ebf244240af5bd11a0517aa2, type: 2}
   _material: {fileID: 2100000, guid: 9c37bad88569eac479da192bbf874526, type: 2}
   singleSize: {x: 0, y: 0}
   scroll: {fileID: 5909557988675650480}
   _devicesDisplay: []
+  UpdateFrequency: 2
   containtime: 0
   containcoordinates: 0
   containsGeometry: 0
+  containsStartTime: 0
 --- !u!1 &915751916
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,12 +507,12 @@ PrefabInstance:
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
       propertyPath: _options.locationOptions.latitudeLongitude
-      value: 38.4911802, -78.4812847
+      value: 38.4985577, -78.4467183
       objectReference: {fileID: 0}
     - target: {fileID: 114478715909612932, guid: e6b749c6d877f4c19a5a5c3c0783d53b,
         type: 3}
       propertyPath: _options.locationOptions.zoom
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6b749c6d877f4c19a5a5c3c0783d53b, type: 3}
@@ -549,6 +552,10 @@ MonoBehaviour:
   _spawnScale: 1
   _markerPrefab: {fileID: 1839187062704024, guid: 051a7f91e6e1d7b488e5100c46d18ea6,
     type: 3}
+  MeshModifiers:
+  - {fileID: 11400000, guid: d31b2cb2a75a54d5bb6402fe0bd8c6cf, type: 2}
+  _material: {fileID: 2100000, guid: 9c37bad88569eac479da192bbf874526, type: 2}
+  _spawnedObjects: []
   Started: 0
 --- !u!114 &1088253731
 MonoBehaviour:
@@ -842,7 +849,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3593b4683ab699944aee8197e310e33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _directionsGO: {fileID: 0}
   scroll: {fileID: 5909557988675650480}
+  DeviceID: 
   _singleKeyValueprefab: {fileID: 1403097641402805529, guid: 62aa7c4fb45aef142ad3c940eabb02e0,
     type: 3}
 --- !u!1 &462190067105022094

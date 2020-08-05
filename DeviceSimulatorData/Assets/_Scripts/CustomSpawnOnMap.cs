@@ -7,11 +7,11 @@
 	using Mapbox.Unity.Utilities;
 	using System.Collections.Generic;
 	using System.Collections;
+	using Mapbox.Unity.MeshGeneration.Modifiers;
 
 	public class CustomSpawnOnMap : MonoBehaviour
 	{
-		[SerializeField]
-		AbstractMap _map;
+		public	AbstractMap _map;
 		public ReadFileSpawnOnMap rfsom;
 		[SerializeField]
 		[Geocode]
@@ -24,13 +24,18 @@
 		[SerializeField]
 		GameObject _markerPrefab;
 
-		List<GameObject> _spawnedObjects;
-		public ArrayList CustomLatLongs;
+	public 	MeshModifier[] MeshModifiers;
+	public 	Material _material;
 
+
+		public List<GameObject> _spawnedObjects;
+		public ArrayList CustomLatLongs;
+		public static CustomSpawnOnMap instance;
 		public ArrayList Dictionaries;
 		public bool Started ;
 		void Start() 
 		{
+			instance = this;
 			CustomLatLongs = new ArrayList();
 			Dictionaries = new ArrayList();
 				Started = false;
