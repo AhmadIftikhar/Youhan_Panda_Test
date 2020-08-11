@@ -1,10 +1,13 @@
 sceneSetups:
 - path: Assets/_Scene/DisplayFileDataOnMap.unity
-  isLoaded: 1
-  isActive: 1
+  isLoaded: 0
+  isActive: 0
 - path: Assets/_Scene/JsonParsin.unity
   isLoaded: 0
   isActive: 0
 - path: Assets/Mapbox/Examples/1_DataExplorer/TrafficAndDirections.unity
   isLoaded: 0
   isActive: 0
+- path: Assets/_Scene/ScenarioBasedBreakDown.unity
+  isLoaded: 1
+  isActive: 1

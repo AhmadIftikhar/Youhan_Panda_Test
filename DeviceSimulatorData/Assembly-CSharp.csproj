@@ -74,6 +74,8 @@
     <Compile Include="Assets\_Scripts\FIrescenarioDataView.cs" />
     <Compile Include="Assets\_Scripts\ReadFromFile.cs" />
     <Compile Include="Assets\EnableDisableView.cs" />
+    <Compile Include="Assets\FetchSesorsofscenario.cs" />
+    <Compile Include="Assets\FileName.cs" />
     <Compile Include="Assets\Mapbox\Core\cheap-ruler-cs\CheapRuler.cs" />
     <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Directions\DirectionResource.cs" />
     <Compile Include="Assets\Mapbox\Core\mapbox-sdk-cs\Directions\Directions.cs" />
